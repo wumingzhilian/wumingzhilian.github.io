@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>wumingzhilian</title>
+  <icon>http://wumingzhilian.github.to/icon.png</icon>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://wumingzhilian.github.to/"/>
+  <updated>2020-08-04T08:10:43.053Z</updated>
+  <id>http://wumingzhilian.github.to/</id>
+  
+  <author>
+    <name>wuming</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>xss-labs详解(上)1-10</title>
+    <link href="http://wumingzhilian.github.to/2020/08/03/first-post/"/>
+    <id>http://wumingzhilian.github.to/2020/08/03/first-post/</id>
+    <published>2020-08-03T02:26:00.000Z</published>
+    <updated>2020-08-04T08:10:43.053Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Level-1&quot;&gt;&lt;a href=&quot;#Level-1&quot; class=&quot;headerlink&quot; title=&quot;Level 1&quot;&gt;&lt;/a&gt;Level 1&lt;/h1&gt;&lt;p&gt;源码&lt;/p&gt;
+&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+      <category term="XSS-Labs" scheme="http://wumingzhilian.github.to/categories/XSS-Labs/"/>
+    
+    
+  </entry>
+  
+</feed>
