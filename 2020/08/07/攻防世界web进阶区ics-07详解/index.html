@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>攻防世界web进阶区ics-04详解 | wumingzhilian</title>
+  <title>攻防世界web进阶区ics-07详解 | wumingzhilian</title>
   <meta name="author" content="wuming" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,13 +15,13 @@
     
       <meta name="description" itemprop="description" content="" />
     
-    <meta property="og:title" content="攻防世界web进阶区ics-04详解" />
+    <meta property="og:title" content="攻防世界web进阶区ics-07详解" />
     
-    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/07/ics-05/" />
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAics-07%E8%AF%A6%E8%A7%A3/" />
     
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@wumingzhilian" />
-      <meta name="twitter:title" content="攻防世界web进阶区ics-04详解" />
+      <meta name="twitter:title" content="攻防世界web进阶区ics-07详解" />
       
         <meta name="twitter:description" content="" />
       
@@ -108,7 +108,7 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">攻防世界web进阶区ics-04详解</h1>
+                <h1 class="kratos-entry-title text-center">攻防世界web进阶区ics-07详解</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
@@ -121,15 +121,27 @@
             <div class="kratos-post-content">
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#floatval"><span class="toc-number">1.1.1.</span> <span class="toc-text">floatval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substr"><span class="toc-number">1.1.2.</span> <span class="toc-text">substr</span></a></li></ol></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/2020080700102895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。</p>
-<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p><img src="https://img-blog.csdnimg.cn/20200807003522432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们发现有三个入口<br>注册，登录，找回密码<br>我们使用sqlmap扫描，发现只有找回密码可以进行sql注入<br><img src="https://img-blog.csdnimg.cn/20200807003634759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003728363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>python2 sqlmap.py -r       -batch --dbs</code><br><img src="https://img-blog.csdnimg.cn/20200807003744543.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003939249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>cert中只有一个表 user<br>我们看他字段<br><img src="https://img-blog.csdnimg.cn/20200807004012923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807004650559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200807004939357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>登录成功获取flag<br>当然，这是在可以获取到密码的情况</p>
-<p>实际上我们并不能一定可以解决</p>
-<p>那么我们可以进行重复注册<br><img src="https://img-blog.csdnimg.cn/20200807005120292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们尝试去覆盖他的原来的账号密码，发现也是可以登陆的</p>
+                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/20200807224356204.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当然又是熟悉的界面，熟悉的ics题目，熟悉的只能点击一个页面</p>
+<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p><img src="https://img-blog.csdnimg.cn/20200807224536294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这里进来有一个view-source<br>点击看看<br><img src="https://img-blog.csdnimg.cn/2020080722460116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>是一堆代码。我们进行尝试审计</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>($_GET[page])) &#123;</span><br><span class="line">  show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">  <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[page]) &amp;&amp; $_GET[page] != <span class="string">&#x27;index.php&#x27;</span>) &#123;</span><br><span class="line">  <span class="keyword">include</span>(<span class="string">&#x27;flag.php&#x27;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">  header(<span class="string">&#x27;Location: ?page=flag.php&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>page不能为空，同时，他的值不能等于index.php这样，就会包含flag.php文件<br>否则重定向到flag.php这个文件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">     <span class="keyword">if</span> ($_SESSION[<span class="string">&#x27;admin&#x27;</span>]) &#123;</span><br><span class="line">       $con = $_POST[<span class="string">&#x27;con&#x27;</span>];</span><br><span class="line">       $file = $_POST[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line">       $filename = <span class="string">&quot;backup/&quot;</span>.$file;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span>(preg_match(<span class="string">&#x27;/.+\.ph(p[3457]?|t|tml)$/i&#x27;</span>, $filename))&#123;</span><br><span class="line">          <span class="keyword">die</span>(<span class="string">&quot;Bad file extension&quot;</span>);</span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            chdir(<span class="string">&#x27;uploaded&#x27;</span>);</span><br><span class="line">           $f = fopen($filename, <span class="string">&#x27;w&#x27;</span>);</span><br><span class="line">           fwrite($f, $con);</span><br><span class="line">           fclose($f);</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们来看第二块儿<br>判断session的是不是admin，然后获取到一些值，<br>匹配.php3457,pht,phtml<br>如果匹配到，那么就结束<br>如果没有匹配到，那么就写入文件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[id]) &amp;&amp; floatval($_GET[id]) !== <span class="string">&#x27;1&#x27;</span> &amp;&amp; substr($_GET[id], <span class="number">-1</span>) === <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">include</span> <span class="string">&#x27;config.php&#x27;</span>;</span><br><span class="line">        $id = mysql_real_escape_string($_GET[id]);</span><br><span class="line">        $sql=<span class="string">&quot;select * from cetc007.user where id=&#x27;$id&#x27;&quot;</span>;</span><br><span class="line">        $result = mysql_query($sql);</span><br><span class="line">        $result = mysql_fetch_object($result);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $result = <span class="literal">False</span>;</span><br><span class="line">        <span class="keyword">die</span>();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(!$result)<span class="keyword">die</span>(<span class="string">&quot;&lt;br &gt;something wae wrong ! &lt;br&gt;&quot;</span>);</span><br><span class="line">      <span class="keyword">if</span>($result)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;id: &quot;</span>.$result-&gt;id.<span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;name:&quot;</span>.$result-&gt;user.<span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line">        $_SESSION[<span class="string">&#x27;admin&#x27;</span>] = <span class="literal">True</span>;</span><br><span class="line">      &#125;</span><br><span class="line">     <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里判断id是否存在，<br>floatval这里用的!==，所以类型也要比较，后变为字符串string，前面为数值float,所以肯定不相等。<br>substr用来返回子串<br>然后进行数据库的查询，并且进行了转义</p>
+<ul>
+<li>第一段是个简单重定向，get参数page不为index.php即可</li>
+<li>第二段 需要得到一个admin的session，之后可以post传入con与file两个参数<br>File参数是自定义的文件名字，之后会处理为backup/文件名<br>这里对文件名进行了过滤，防止后缀名是php的文件。<br>上传成功后，会切换到uploaded目录，创建文件，并将con的内容写入，<br>那么实际文件的路径就是：uploaded/backup/xxx.xxx</li>
+<li>第三段代码是对get参数id进行校验，如果id的浮点数不是1，且最后一位是9那么，实行查询语句，如果查询正确，会得到一个admin的session</li>
+</ul>
+<p>因此我们这里就需要满足所有需求<br><img src="https://img-blog.csdnimg.cn/20200807230506915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们查询id的时候，发现有了admin的session<br><code>?page=flag.php&amp;id=1xx9</code><br>这里因为只要他的最后一位是9即可进行绕过<br>这里同时利用了php的弱类型相等，因此可以进行查询语句<br><img src="https://img-blog.csdnimg.cn/2020080723131155.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>我们就可以进行上传木马了<br>因为他过滤很严格，我们只能进行解析漏洞<br>00截断啊，之类的<br><img src="https://img-blog.csdnimg.cn/20200807231609530.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807231939286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们发现这里上传的并没有存进来，必须通过网页来上传，因为那里有者session<br><img src="https://img-blog.csdnimg.cn/20200807233141961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>apache2.x的解析漏洞<br>1.php.xxx会被当作php来解析，那么我当时上传的时候，并没有能够成功，<br>我们换另一种上传方式<br><code>其中 .. 代表当前目录的父目录 , .代表当前目录，所以这里的c.php/b.php/..也就是访问b.php的父目录，也就是 c.php </code><br><img src="https://img-blog.csdnimg.cn/20200807233451257.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但是我这里死活连不上，<br><img src="https://img-blog.csdnimg.cn/20200807234136674.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>只能这样来表示可以了吧<br><img src="https://img-blog.csdnimg.cn/20200807234832711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们上传可以往父级目录上传，我估计他可能父级目录可以进行操作</p>
+<h3 id="floatval"><a href="#floatval" class="headerlink" title="floatval"></a>floatval</h3><p><img src="https://img-blog.csdnimg.cn/20200807225106496.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807225130592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>他只留下了数字</p>
+<h3 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h3><p><img src="https://img-blog.csdnimg.cn/20200807225907698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
             </div>
             
@@ -185,7 +197,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://wumingzhilian.github.to/2020/08/07/ics-05/",
+                text: "http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAics-07%E8%AF%A6%E8%A7%A3/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -197,10 +209,11 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://wumingzhilian.github.to/2020/08/07/ics-05/";
-            const title         = "「攻防世界web进阶区ics-04详解」";
-            const excerpt       = `题目打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。
-详解我们发现有三个入口注册，登录，找回密码我们使用sqlmap扫描，发现只有找回密码可以进行sql注入python2 sqlmap.py -r       -b...`;
+            const hostUrl       = "http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAics-07%E8%AF%A6%E8%A7%A3/";
+            const title         = "「攻防世界web进阶区ics-07详解」";
+            const excerpt       = `题目当然又是熟悉的界面，熟悉的ics题目，熟悉的只能点击一个页面
+详解这里进来有一个view-source点击看看是一堆代码。我们进行尝试审计
+12345678910111213&lt;?phpsession_start();if (...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -219,7 +232,7 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/CTF/" rel="tag">CTF</a>, <a class="tag-none-link" href="/tags/WEB/" rel="tag">WEB</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
+                        <a class="tag-none-link" href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" rel="tag">web进阶区</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
                     </div>
                     <div class="pull-date">
                     <span>最后编辑：2020-08-07</span>
@@ -231,13 +244,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 攻防世界web进阶区FlatScience详解" href="/2020/08/06/攻防世界web进阶区FlatScience详解/">&lt; 上一篇</a>
+                    <a title=" 攻防世界web进阶区bug详解" href="/2020/08/07/攻防世界web进阶区bug详解/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" 攻防世界web进阶区Cat详解" href="/2020/08/07/攻防世界web进阶区Cat详解/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -249,8 +258,8 @@
         new DisqusJS({
             shortname: '',
             siteName: '',
-            identifier: '2020/08/07/ics-05/',
-            url: 'http://wumingzhilian.github.to/2020/08/07/ics-05/',
+            identifier: '2020/08/07/攻防世界web进阶区ics-07详解/',
+            url: 'http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAics-07%E8%AF%A6%E8%A7%A3/',
             api: '',
             apikey: '',
             admin: '',
@@ -276,7 +285,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#floatval"><span class="toc-number">1.1.1.</span> <span class="toc-text">floatval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substr"><span class="toc-number">1.1.2.</span> <span class="toc-text">substr</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>

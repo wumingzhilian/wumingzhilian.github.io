@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>攻防世界web进阶区ics-04详解 | wumingzhilian</title>
+  <title>攻防世界web进阶区bug详解 | wumingzhilian</title>
   <meta name="author" content="wuming" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,13 +15,13 @@
     
       <meta name="description" itemprop="description" content="" />
     
-    <meta property="og:title" content="攻防世界web进阶区ics-04详解" />
+    <meta property="og:title" content="攻防世界web进阶区bug详解" />
     
-    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/07/ics-05/" />
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAbug%E8%AF%A6%E8%A7%A3/" />
     
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@wumingzhilian" />
-      <meta name="twitter:title" content="攻防世界web进阶区ics-04详解" />
+      <meta name="twitter:title" content="攻防世界web进阶区bug详解" />
       
         <meta name="twitter:description" content="" />
       
@@ -108,7 +108,7 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">攻防世界web进阶区ics-04详解</h1>
+                <h1 class="kratos-entry-title text-center">攻防世界web进阶区bug详解</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
@@ -121,15 +121,14 @@
             <div class="kratos-post-content">
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">解法</span></a></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/2020080700102895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。</p>
-<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p><img src="https://img-blog.csdnimg.cn/20200807003522432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们发现有三个入口<br>注册，登录，找回密码<br>我们使用sqlmap扫描，发现只有找回密码可以进行sql注入<br><img src="https://img-blog.csdnimg.cn/20200807003634759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003728363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>python2 sqlmap.py -r       -batch --dbs</code><br><img src="https://img-blog.csdnimg.cn/20200807003744543.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003939249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>cert中只有一个表 user<br>我们看他字段<br><img src="https://img-blog.csdnimg.cn/20200807004012923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807004650559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200807004939357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>登录成功获取flag<br>当然，这是在可以获取到密码的情况</p>
-<p>实际上我们并不能一定可以解决</p>
-<p>那么我们可以进行重复注册<br><img src="https://img-blog.csdnimg.cn/20200807005120292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们尝试去覆盖他的原来的账号密码，发现也是可以登陆的</p>
+                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/20200807214703241.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>我们直接打开就是一个页面，登录页面，<br><img src="https://img-blog.csdnimg.cn/20200807214749301.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当我们尝试注册的时候，发现，用户已经存在<br><img src="https://img-blog.csdnimg.cn/20200807214806881.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们对他所有的页面都进行sqlmap的扫描，并没有发现可以注入的点<br>因为他这里之前注册时候发现存在admin的账户，<br>我们尝试一下，这里功能很多，那么我们试试直接修改admin的账户密码试试<br><img src="https://img-blog.csdnimg.cn/20200807220807826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们在他修改密码的地方，尝试修改名字<br><img src="https://img-blog.csdnimg.cn/20200807220839326.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>发现成功，<br>我们登录admin的账号试试<br><img src="https://img-blog.csdnimg.cn/20200807221037747.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>其实我们发现还是不能登录，只是名字改为了admin，并没有他的权限，最多有了他的信息<br>我们尝试上一次使用的xff修改<br><img src="https://img-blog.csdnimg.cn/20200807221252870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>成功登录，说明他这里限制了本地ip<br><img src="https://img-blog.csdnimg.cn/20200807221326163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>查看源码，发现了隐藏语句<br><img src="https://img-blog.csdnimg.cn/20200807221353300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>直接访问肯定不可以，<br>他说了，filemanage，我们猜测，这几个问号是什么<br>无非就是change，upload，stastic，果然有upload可以进去<br><img src="https://img-blog.csdnimg.cn/20200807221539912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>开始我们的上传之路<br><img src="https://img-blog.csdnimg.cn/20200807221621509.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>正常上传发现可以<br><img src="https://img-blog.csdnimg.cn/20200807221756802.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>写入一句话，发现他认出了我们是php<br>所以他开启了内容的检测<br><img src="https://img-blog.csdnimg.cn/20200807221949412.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>文件头依旧不可以绕过<br><img src="https://img-blog.csdnimg.cn/20200807222103470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们放出大招，果然，文件内容可以进行绕过了，现在是文件后缀的绕过<br><img src="https://img-blog.csdnimg.cn/20200807222137763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>直到我们输入php4，发现终于可以绕过了</p>
+<p><img src="https://img-blog.csdnimg.cn/20200807222216296.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>同时我们获得了flag</p>
 
             </div>
             
@@ -185,7 +184,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://wumingzhilian.github.to/2020/08/07/ics-05/",
+                text: "http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAbug%E8%AF%A6%E8%A7%A3/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -197,10 +196,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://wumingzhilian.github.to/2020/08/07/ics-05/";
-            const title         = "「攻防世界web进阶区ics-04详解」";
-            const excerpt       = `题目打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。
-详解我们发现有三个入口注册，登录，找回密码我们使用sqlmap扫描，发现只有找回密码可以进行sql注入python2 sqlmap.py -r       -b...`;
+            const hostUrl       = "http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAbug%E8%AF%A6%E8%A7%A3/";
+            const title         = "「攻防世界web进阶区bug详解」";
+            const excerpt       = `题目
+解法我们直接打开就是一个页面，登录页面，当我们尝试注册的时候，发现，用户已经存在我们对他所有的页面都进行sqlmap的扫描，并没有发现可以注入的点因为他这里之前注册时候发现存在admin的账户，我们尝试一下，这里功能很多，那么我...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -219,7 +218,7 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/CTF/" rel="tag">CTF</a>, <a class="tag-none-link" href="/tags/WEB/" rel="tag">WEB</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
+                        <a class="tag-none-link" href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" rel="tag">web进阶区</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
                     </div>
                     <div class="pull-date">
                     <span>最后编辑：2020-08-07</span>
@@ -231,12 +230,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 攻防世界web进阶区FlatScience详解" href="/2020/08/06/攻防世界web进阶区FlatScience详解/">&lt; 上一篇</a>
+                    <a title=" 攻防世界web进阶区Cat详解" href="/2020/08/07/攻防世界web进阶区Cat详解/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" 攻防世界web进阶区Cat详解" href="/2020/08/07/攻防世界web进阶区Cat详解/">下一篇 &gt;</a>
+                    <a title=" 攻防世界web进阶区ics-07详解" href="/2020/08/07/攻防世界web进阶区ics-07详解/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -249,8 +248,8 @@
         new DisqusJS({
             shortname: '',
             siteName: '',
-            identifier: '2020/08/07/ics-05/',
-            url: 'http://wumingzhilian.github.to/2020/08/07/ics-05/',
+            identifier: '2020/08/07/攻防世界web进阶区bug详解/',
+            url: 'http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAbug%E8%AF%A6%E8%A7%A3/',
             api: '',
             apikey: '',
             admin: '',
@@ -276,7 +275,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">解法</span></a></li></ol></li></ol>
         
     </div>
 </aside>

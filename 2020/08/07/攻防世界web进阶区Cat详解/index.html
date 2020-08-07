@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>攻防世界web进阶区ics-04详解 | wumingzhilian</title>
+  <title>攻防世界web进阶区Cat详解 | wumingzhilian</title>
   <meta name="author" content="wuming" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,13 +15,13 @@
     
       <meta name="description" itemprop="description" content="" />
     
-    <meta property="og:title" content="攻防世界web进阶区ics-04详解" />
+    <meta property="og:title" content="攻防世界web进阶区Cat详解" />
     
-    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/07/ics-05/" />
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/" />
     
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@wumingzhilian" />
-      <meta name="twitter:title" content="攻防世界web进阶区ics-04详解" />
+      <meta name="twitter:title" content="攻防世界web进阶区Cat详解" />
       
         <meta name="twitter:description" content="" />
       
@@ -108,7 +108,7 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">攻防世界web进阶区ics-04详解</h1>
+                <h1 class="kratos-entry-title text-center">攻防世界web进阶区Cat详解</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
@@ -125,11 +125,16 @@
                     </div>
                 
                 <hr />
-                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/2020080700102895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。</p>
-<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p><img src="https://img-blog.csdnimg.cn/20200807003522432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们发现有三个入口<br>注册，登录，找回密码<br>我们使用sqlmap扫描，发现只有找回密码可以进行sql注入<br><img src="https://img-blog.csdnimg.cn/20200807003634759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003728363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>python2 sqlmap.py -r       -batch --dbs</code><br><img src="https://img-blog.csdnimg.cn/20200807003744543.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003939249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>cert中只有一个表 user<br>我们看他字段<br><img src="https://img-blog.csdnimg.cn/20200807004012923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807004650559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200807004939357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>登录成功获取flag<br>当然，这是在可以获取到密码的情况</p>
-<p>实际上我们并不能一定可以解决</p>
-<p>那么我们可以进行重复注册<br><img src="https://img-blog.csdnimg.cn/20200807005120292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们尝试去覆盖他的原来的账号密码，发现也是可以登陆的</p>
+                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/20200807120438869.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但是我们输入一个链接的时候发现没有回显<br><img src="https://img-blog.csdnimg.cn/20200807120513749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这是我们访问loli.club的页面<br><img src="https://img-blog.csdnimg.cn/2020080712054391.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们输入ip地址，发现有回显</p>
+<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p>至此，我们猜测是一个代码执行的考点<br>我们尝试<br>127.0.0.1||ls<br>127.0.0.1&amp;&amp;ls<br>127.0.0.1|ls<br>均被过滤</p>
+<p><img src="https://img-blog.csdnimg.cn/20200807121131144.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们发现他的url处存在编码，url编码我们进行尝试<br>发现，url编码为%80时报错，<br>因为ASCII码的编码范围0-127<br>%80相当于128 所以推断是由unicode解码失败导致的，</p>
+<p>在比赛的时候有个提示：</p>
+<blockquote>
+<p>RTFM of PHP CURL===&gt;&gt;read the fuck manul of PHP CURL???</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200807123227185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们可以看到，他是POST方式，同时有着Django的模板<br>根据大佬的教学</p>
+<p><img src="https://img-blog.csdnimg.cn/20200807123334381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>可以使用at为前缀并使用完整路径<br>我们根据django的目录，<br>可以从配置文件settings.py的报错中看看有没有database的相关信息<br><code>?url=@/opt/api/api/settings.py</code><br><img src="https://img-blog.csdnimg.cn/20200807123646568.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们找到他是一个sqlite3数据库<br>我们看看他的内容<br><img src="https://img-blog.csdnimg.cn/20200807123947183.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807124231589.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
             </div>
             
@@ -185,7 +190,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://wumingzhilian.github.to/2020/08/07/ics-05/",
+                text: "http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -197,10 +202,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://wumingzhilian.github.to/2020/08/07/ics-05/";
-            const title         = "「攻防世界web进阶区ics-04详解」";
-            const excerpt       = `题目打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。
-详解我们发现有三个入口注册，登录，找回密码我们使用sqlmap扫描，发现只有找回密码可以进行sql注入python2 sqlmap.py -r       -b...`;
+            const hostUrl       = "http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/";
+            const title         = "「攻防世界web进阶区Cat详解」";
+            const excerpt       = `题目但是我们输入一个链接的时候发现没有回显这是我们访问loli.club的页面我们输入ip地址，发现有回显
+详解至此，我们猜测是一个代码执行的考点我们尝试127.0.0.1||ls127.0.0.1&amp;&amp;ls127.0....`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -219,7 +224,7 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/CTF/" rel="tag">CTF</a>, <a class="tag-none-link" href="/tags/WEB/" rel="tag">WEB</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
+                        <a class="tag-none-link" href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" rel="tag">web进阶区</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
                     </div>
                     <div class="pull-date">
                     <span>最后编辑：2020-08-07</span>
@@ -231,12 +236,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 攻防世界web进阶区FlatScience详解" href="/2020/08/06/攻防世界web进阶区FlatScience详解/">&lt; 上一篇</a>
+                    <a title=" 攻防世界web进阶区ics-04详解" href="/2020/08/07/ics-05/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" 攻防世界web进阶区Cat详解" href="/2020/08/07/攻防世界web进阶区Cat详解/">下一篇 &gt;</a>
+                    <a title=" 攻防世界web进阶区bug详解" href="/2020/08/07/攻防世界web进阶区bug详解/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -249,8 +254,8 @@
         new DisqusJS({
             shortname: '',
             siteName: '',
-            identifier: '2020/08/07/ics-05/',
-            url: 'http://wumingzhilian.github.to/2020/08/07/ics-05/',
+            identifier: '2020/08/07/攻防世界web进阶区Cat详解/',
+            url: 'http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/',
             api: '',
             apikey: '',
             admin: '',
