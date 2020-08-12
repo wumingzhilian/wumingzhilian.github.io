@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>web信息收集之搜索引擎 | wumingzhilian</title>
+  <meta name="author" content="wuming" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    
+      <meta name="description" itemprop="description" content="" />
+    
+    <meta property="og:title" content="web信息收集之搜索引擎" />
+    
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/12/web%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B9%8B%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" />
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@wumingzhilian" />
+      <meta name="twitter:title" content="web信息收集之搜索引擎" />
+      
+        <meta name="twitter:description" content="" />
+      
+      
+    
+  
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqusjs.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script async src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqus.js"></script>
+  
+<meta name="generator" content="Hexo 5.0.0"></head>
+<body class="custom-background">
+    <div id="kratos-wrapper">
+        <div id="kratos-page">
+            <div id="kratos-header">
+                <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+                <header id="kratos-header-section">
+                    <div class="container">
+                        <div class="nav-header">
+                            <div class="color-logo"><a href="/">wumingzhilian</a></div>
+                            <nav id="kratos-menu-wrap">
+                              <ul id="kratos-primary-menu" class="sf-menu">
+                              
+                                
+                                  <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                
+                              
+                                
+                                  <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                
+                              
+                                
+                                  <li><a href="/friends/"><i class="fa fa-mars-double"></i>好伙伴</a></li>
+                                
+                              
+                                
+                                  <li><a href="/about/"><li><i class="fa fa-paper-plane"></i>关于我</a></li>
+                                
+                              
+                              </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+
+<div class="kratos-start kratos-hero-2">
+    <!-- <div class="kratos-overlay"></div> -->
+    <div class="kratos-cover kratos-cover-2 text-center">
+        <div class="desc desc2 animate-box">
+            <a href="/"><h2>wumingzhilian</h2><br><span></span></a>
+        </div>
+    </div>
+</div>
+
+<div id="kratos-blog-post">
+    <div class="container">
+            <div class="row">
+                
+<div id="main">
+    <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">web信息收集之搜索引擎</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                    <i class="fa fa-calendar"></i> 2020-08-12
+                    <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
+                    <i class="fa fa-user"></i> 作者 wuming
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Google-Hacking"><span class="toc-number">1.</span> <span class="toc-text">一、Google Hacking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-site"><span class="toc-number">1.1.</span> <span class="toc-text">1. site</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-filetype"><span class="toc-number">1.2.</span> <span class="toc-text">2. filetype</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-inurl"><span class="toc-number">1.3.</span> <span class="toc-text">3. inurl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-intitle"><span class="toc-number">1.4.</span> <span class="toc-text">4. intitle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-intext"><span class="toc-number">1.5.</span> <span class="toc-text">5. intext</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.6.</span> <span class="toc-text">6. 符号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Shodan-Hacking"><span class="toc-number">2.</span> <span class="toc-text">二、Shodan Hacking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-ip"><span class="toc-number">2.1.</span> <span class="toc-text">1. ip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-service-protocol"><span class="toc-number">2.2.</span> <span class="toc-text">2. service&#x2F;protocol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-keyword"><span class="toc-number">2.3.</span> <span class="toc-text">3. keyword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-country"><span class="toc-number">2.4.</span> <span class="toc-text">4. country</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-product"><span class="toc-number">2.5.</span> <span class="toc-text">5. product</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-version"><span class="toc-number">2.6.</span> <span class="toc-text">6. version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-hostname"><span class="toc-number">2.7.</span> <span class="toc-text">7. hostname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-os"><span class="toc-number">2.8.</span> <span class="toc-text">8. os</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-net"><span class="toc-number">2.9.</span> <span class="toc-text">9. net</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-port"><span class="toc-number">2.10.</span> <span class="toc-text">10. port</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B"><span class="toc-number">2.11.</span> <span class="toc-text">11. 综合案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81-Zoomeye-Hacking"><span class="toc-number">3.</span> <span class="toc-text">三、 Zoomeye Hacking</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81fofa"><span class="toc-number">4.</span> <span class="toc-text">四、fofa</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#godeye"><span class="toc-number">5.</span> <span class="toc-text">godeye</span></a></li></ol>
+                    </div>
+                
+                <hr />
+                <h1 id="一、Google-Hacking"><a href="#一、Google-Hacking" class="headerlink" title="一、Google Hacking"></a>一、Google Hacking</h1><h2 id="1-site"><a href="#1-site" class="headerlink" title="1. site"></a>1. site</h2><p>功能： 搜索指定域名的网页内容，用来搜索子域名、跟此域名相关的内容。</p>
+<p>举例：</p>
+<blockquote>
+<p>site:baidu.com           搜索baidu.com相关的网页。(索引) “web安全”<br>    site:baidu.com    搜索baidu.com跟web安全相关的网页(前后顺序没关系) site:pan.baidu.com<br>“教程”    在百度网盘搜索教程相关的资源</p>
+</blockquote>
+<h2 id="2-filetype"><a href="#2-filetype" class="headerlink" title="2. filetype"></a>2. filetype</h2><p>功能： 搜索指定文件类型。</p>
+<p>举例：</p>
+<blockquote>
+<p>“web安全” filetype:pdf       搜索跟web安全书籍相关的pdf文件 nmap filetype:ppt<br>搜索跟nmap相关的ppt 文件 site:baidu.com filetype:pdf   搜索百度网站的pdf文件 “web安全”<br>site:baidu.com  filetype:pdf   组合起来搜索</p>
+</blockquote>
+<h2 id="3-inurl"><a href="#3-inurl" class="headerlink" title="3. inurl"></a>3. inurl</h2><p>功能： 搜索url网址存在特定关键字的网页，可以用来搜索有注入点的网站。</p>
+<p>举例：</p>
+<blockquote>
+<p>inurl:php?id=             搜索网址中有“php?id=”的网页<br>inurl:view.php=?          搜索网址中有“view.php=?”的网页<br>inurl:.jsp?id=            搜索网址中有“jsp?id=”的网页<br>inurl:.asp?id=            搜索网址中有“asp?id=”的网页<br>inurl:/admin/login.php    搜索网址中有“/admin/login.php”的网页<br>inurl:login               搜索网址中有“login”的网页<br>inurl:admin  site:baidu.com   搜索百度网址中含有admin的网址</p>
+</blockquote>
+<h2 id="4-intitle"><a href="#4-intitle" class="headerlink" title="4. intitle"></a>4. intitle</h2><p>功能： 搜索标题存在特定关键字的网页。</p>
+<p>举例：</p>
+<blockquote>
+<p>intitle:后台               搜索标题中含有”后台”的网页<br>intitle:后台 inurl:admin   搜索url宗含有”admin”并且标题中含有”后台”的网页<br>intitle:后台 inurl:admin filetype:php   又加了一个限制条件”后台类型为php”<br>intitle:”index of”          搜索索引目录<br>intitle:index of “login”    搜索登陆页面信息<br>intitle:index of “admin”    搜索后台首页管理页面信息</p>
+</blockquote>
+<h2 id="5-intext"><a href="#5-intext" class="headerlink" title="5. intext"></a>5. intext</h2><p>功能： 搜索正文存在特定关键字的网页。</p>
+<p>举例：</p>
+<blockquote>
+<p>intext:powered by Discuz    搜索Discuz论坛相关的页面<br>intext:powered by wordpress 搜索wordpress制作的博客网站<br>intest:powered by <em>CMS      搜索</em>CMS相关的页面<br>indext:powered by xxx inurl:login   搜索此类网址的后台登陆页面</p>
+</blockquote>
+<h2 id="6-符号"><a href="#6-符号" class="headerlink" title="6. 符号"></a>6. 符号</h2><blockquote>
+<p>-keyword    强制结果不要出现次关键字，例如：电影 -黑客<br>*keyword    模糊搜索，强制结果包含此关键词，例如：电影 <em>黑客</em><br>“keyword”   强制搜索结果出现此关键词，例如：书籍 “黑客”<br>~keyword    同时搜索同义词，例如：collega、university</p>
+<p>site:csdn.net “sql注入” -测试 2019..2020<br>搜索csdn上2019-2020年关于”sql注入”并且排除”测试”的网页</p>
+</blockquote>
+<h1 id="二、Shodan-Hacking"><a href="#二、Shodan-Hacking" class="headerlink" title="二、Shodan Hacking"></a>二、Shodan Hacking</h1><p><a target="_blank" rel="noopener" href="https://www.shodan.io/">https://www.shodan.io</a></p>
+<p>Shodan (撒旦搜索引擎) 是由web工程师 John Mather (马瑟利) 编写的，被称为“最可怕的搜索引擎”，可扫描一切联网的设备。除了常见的web服务器，还能扫描防火墙、交换机、摄像头、打印机等一切联网设备。</p>
+<h2 id="1-ip"><a href="#1-ip" class="headerlink" title="1. ip"></a>1. ip</h2><blockquote>
+<p>114.114.114.114</p>
+</blockquote>
+<h2 id="2-service-protocol"><a href="#2-service-protocol" class="headerlink" title="2. service/protocol"></a>2. service/protocol</h2><blockquote>
+<p>http<br>http country:”DE”<br>http country:”DE” product:”Apache httpd”<br>http product:”Apache httpd”</p>
+<p>ssh<br>ssh default password<br>ssh default passwiird country:”JP”</p>
+</blockquote>
+<h2 id="3-keyword"><a href="#3-keyword" class="headerlink" title="3. keyword"></a>3. keyword</h2><p>基于关键词搜索的思路是根据banner信息(设备指纹)来搜索</p>
+<blockquote>
+<p>“default password” country:”TH”<br>FTP anon successful         # ftp匿名用户访问</p>
+</blockquote>
+<h2 id="4-country"><a href="#4-country" class="headerlink" title="4. country"></a>4. country</h2><blockquote>
+<p>country:cn<br>country:us</p>
+</blockquote>
+<h2 id="5-product"><a href="#5-product" class="headerlink" title="5. product"></a>5. product</h2><blockquote>
+<p>product:”Nicrosoft IIS httpd”<br>product:”nginx”<br>product:”Apache httpd”<br>product:MYSQL</p>
+</blockquote>
+<h2 id="6-version"><a href="#6-version" class="headerlink" title="6. version"></a>6. version</h2><blockquote>
+<p>product:MySQL version:”5.1.73”<br>product:”Microsoft IIS httpd” version:”7.5”</p>
+</blockquote>
+<h2 id="7-hostname"><a href="#7-hostname" class="headerlink" title="7. hostname"></a>7. hostname</h2><blockquote>
+<p>hostname:.org<br>hostname:.edu</p>
+</blockquote>
+<h2 id="8-os"><a href="#8-os" class="headerlink" title="8. os"></a>8. os</h2><blockquote>
+<p>os:”Windows Server 2008 R2”<br>os:”Windows 7 or 8”<br>os:”Linux 2.6.x”</p>
+</blockquote>
+<h2 id="9-net"><a href="#9-net" class="headerlink" title="9. net"></a>9. net</h2><blockquote>
+<p>net:110.180.13.0/24<br>200 ok net:110.180.13.0/24<br>200 ok country:JP net:110.180.13.0/24</p>
+</blockquote>
+<h2 id="10-port"><a href="#10-port" class="headerlink" title="10. port"></a>10. port</h2><blockquote>
+<p>port:22<br>port:3389</p>
+</blockquote>
+<h2 id="11-综合案例"><a href="#11-综合案例" class="headerlink" title="11. 综合案例"></a>11. 综合案例</h2><blockquote>
+<p>搜索日本区开启80端口的设备：<br>country:jp port:80<br>country:jp port:80 product:”Apache httpd”<br>country:jp port:80 product:”Apache httpd” city:”Tokyo”<br>country:jp port:80 product:”Apache httpd” city:”Tokyo” os:”Linux 3.x”</p>
+</blockquote>
+<blockquote>
+<p>搜索日本区使用Linux2.6x系统的设备：<br>country:jp os:”Linux 2.6.x”<br>country:jp os:”Linux 2.6.x” port:80<br>country:jp os:”Linux 2.6.x” port:80 product:”Apache httpd”</p>
+</blockquote>
+<blockquote>
+<p>搜索日本区使用Windows Server 系统的设备：<br>country:jp os:”Windows Server 2008 R2”<br>country:jp os:”Windows Server 2003” port:445<br>country:jp os:”Windows Server 2003” port:80</p>
+</blockquote>
+<blockquote>
+<p>搜索日本区使用Microsoft IIS 的设备：<br>country:jp product:”Microsoft IIS httpd” version:”7.5”</p>
+</blockquote>
+<h1 id="三、-Zoomeye-Hacking"><a href="#三、-Zoomeye-Hacking" class="headerlink" title="三、 Zoomeye Hacking"></a>三、 Zoomeye Hacking</h1><p><a target="_blank" rel="noopener" href="https://www.zoomeye.org/">https://www.zoomeye.org/</a></p>
+<p>Zoomeye (钟馗之眼) 是一个现面向网络空间的搜索引擎，”国产的Shodan”,由创宇出品。</p>
+<blockquote>
+<p>ip<br>os<br>app<br>service<br>port<br>product<br>country<br>ver<br>cidr<br>hostname<br>site<br>title<br>header<br>keywords<br>desc</p>
+</blockquote>
+<blockquote>
+<p>快捷帮助：<br>显示该帮助 shift + /<br>隐藏该帮助 ESC<br>回到首页 shift + h<br>高级搜索 shift + s<br>聚焦搜索框 s</p>
+</blockquote>
+<blockquote>
+<p>搜索手册： <a target="_blank" rel="noopener" href="https://www.zoomeye.org/doc?channel=user">https://www.zoomeye.org/doc?channel=user</a></p>
+</blockquote>
+<h1 id="四、fofa"><a href="#四、fofa" class="headerlink" title="四、fofa"></a>四、fofa</h1><p>FOFA是白帽汇推出的一款网络空间搜索引擎，它通过进行网络空间测绘，能够帮助研究人员或者企业迅速进行网络资产匹配，例如进行漏洞影响范围分析、应用分布统计、应用流行度排名统计等。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://fofa.so/">https://fofa.so/</a></p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://fofa.so/help">https://fofa.so/help</a></p>
+<p>下面是FOFA的一些简单使用案例：</p>
+<p>注意：FOFA搜索关键词不区分大小写</p>
+<p>查询语法：</p>
+<blockquote>
+<p>title=”abc”   从标题中搜索abc。例：标题中有北京的网站<br>header=”abc”  从http头中搜索abc。例：jboss服务器<br>body=”abc”    从html正文中搜索abc。例：正文包含Hacked by<br>domain=”qq.com”  搜索根域名带有qq.com的网站。例： 根域名是qq.com的网站<br>host=”.gov.cn”   从url中搜索.gov.cn,注意搜索要用host作为名称。例： 政府网站, 教育网站<br>port=”443”      查找对应443端口的资产。例： 查找对应443端口的资产<br>ip=”1.1.1.1”    从ip中搜索包含1.1.1.1的网站,注意搜索要用ip作为名称。例： 查询IP为220.181.111.1的网站; 如果想要查询网段，可以是：ip=”220.181.111.1/24”，例如查询IP为220.181.111.1的C网段资产<br>protocol=”https” 搜索指定协议类型(在开启端口扫描的情况下有效)。例： 查询https协议资产<br>city=”Hangzhou”  搜索指定城市的资产。例： 搜索指定城市的资产<br>region=”Zhejiang”  搜索指定行政区的资产。例： 搜索指定行政区的资产<br>country=”CN”   搜索指定国家(编码)的资产。例： 搜索指定国家(编码)的资产<br>cert=”google”   搜索证书(https或者imaps等)中带有google的资产。例： 搜索证书(https或者imaps等)中带有google的资产<br>banner=users &amp;&amp; protocol=ftp  搜索FTP协议中带有users文本的资产。例： 搜索FTP协议中带有users文本的资产<br>type=service     搜索所有协议资产，支持subdomain和service两种。例： 搜索所有协议资产<br>os=windows       搜索Windows资产。例： 搜索Windows资产<br>server==”Microsoft-IIS/7.5” 搜索IIS 7.5服务器。例： 搜索IIS 7.5服务器<br>app=”海康威视-视频监控” 搜索海康威视设备，更多app规则。例： 搜索海康威视设备<br>after=”2017” &amp;&amp; before=”2017-10-01” 时间范围段搜索。例： 时间范围段搜索，注意： after是大于并且等于，before是小于，这里 after=”2017” 就是日期大于并且等于 2017-01-01 的数据，而 before=”2017-10-01” 则是小于 2017-10-01 的数据<br>asn=”19551” 搜索指定asn的资产。例： 搜索指定asn的资产<br>org=”Amazon.com, Inc.” 搜索指定org(组织)的资产。例： 搜索指定org(组织)的资产<br>base_protocol=”udp” 搜索指定udp协议的资产。例： 搜索指定udp协议的资产<br>is_ipv6=true 搜索ipv6的资产,只接受true和false。例： 搜索ipv6的资产<br>is_domain=true 搜索域名的资产,只接受true和false。例： 搜索域名的资产<br>ip_ports=”80,443” 或者 ports=”80,443” 搜索同时开放80和443端口的ip资产(以ip为单位的资产数据)。例： 搜索同时开放80和443端口的ip<br>ip_ports==”80,443” 或者 ports==”80,443” 搜索同时开放80和443端口的ip资产(以ip为单位的资产数据)。例： 搜索只开放80和443端口的ip<br>ip_country=”CN” 搜索中国的ip资产(以ip为单位的资产数据)。例： 搜索中国的ip资产<br>ip_region=”Zhejiang” 搜索指定行政区的ip资产(以ip为单位的资产数据)。例： 搜索指定行政区的资产<br>ip_city=”Hangzhou” 搜索指定城市的ip资产(以ip为单位的资产数据)。例： 搜索指定城市的资产<br>ip_after=”2019-01-01” 搜索2019-01-01以后的ip资产(以ip为单位的资产数据)。例： 搜索2019-01-01以后的ip资产<br>ip_before=”2019-01-01” 搜索2019-01-01以前的ip资产(以ip为单位的资产数据)。例： 搜索2019-01-01以前的ip资产</p>
+</blockquote>
+<blockquote>
+<p>高级搜索：可以使用括号 和 &amp;&amp; || !=等符号，如<br>title=”powered by” &amp;&amp; title!=discuz<br>title!=”powered by” &amp;&amp; body=discuz<br>( body=”content=&quot;WordPress” || (header=”X-Pingback” &amp;&amp; header=”/xmlrpc.php” &amp;&amp; body=”/wp-includes/“) ) &amp;&amp; host=”gov.cn”<br>新增加==完全匹配的符号，可以加快搜索速度，比如查找qq.com所有host，可以是domain==”qq.com”</p>
+</blockquote>
+<p>以上转自：<br><a target="_blank" rel="noopener" href="https://yanmie-art.github.io/2020/07/15/web%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B9%8B%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">https://yanmie-art.github.io/2020/07/15/web%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B9%8B%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</a></p>
+<h1 id="godeye"><a href="#godeye" class="headerlink" title="godeye"></a>godeye</h1><p><a target="_blank" rel="noopener" href="https://www.godeye.vip/">https://www.godeye.vip/</a></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://wumingzhilian.github.to/2020/08/12/web%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B9%8B%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://wumingzhilian.github.to/2020/08/12/web%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B9%8B%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/";
+            const title         = "「web信息收集之搜索引擎」";
+            const excerpt       = `一、Google Hacking1. site功能： 搜索指定域名的网页内容，用来搜索子域名、跟此域名相关的内容。
+举例：
+
+site:baidu.com           搜索baidu.com相关的网页。(索引) “web安全”...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/" rel="tag">信息搜集</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-08-12</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 攻防世界web进阶区comment详解" href="/2020/08/11/攻防世界web进阶区comment详解/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+            <div id="disqus_thread"></div>
+<script>
+    $(function(){
+        window.DISQUS = null;
+        new DisqusJS({
+            shortname: '',
+            siteName: '',
+            identifier: '2020/08/12/web信息收集之搜索引擎/',
+            url: 'http://wumingzhilian.github.to/2020/08/12/web%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B9%8B%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/',
+            api: '',
+            apikey: '',
+            admin: '',
+            adminLabel: ''
+        });
+    });
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/SukkaW/DisqusJS">comments powered by DisqusJS.</a></noscript>
+        
+    </article>
+</section>
+</div>
+        
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.png" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Google-Hacking"><span class="toc-number">1.</span> <span class="toc-text">一、Google Hacking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-site"><span class="toc-number">1.1.</span> <span class="toc-text">1. site</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-filetype"><span class="toc-number">1.2.</span> <span class="toc-text">2. filetype</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-inurl"><span class="toc-number">1.3.</span> <span class="toc-text">3. inurl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-intitle"><span class="toc-number">1.4.</span> <span class="toc-text">4. intitle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-intext"><span class="toc-number">1.5.</span> <span class="toc-text">5. intext</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.6.</span> <span class="toc-text">6. 符号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Shodan-Hacking"><span class="toc-number">2.</span> <span class="toc-text">二、Shodan Hacking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-ip"><span class="toc-number">2.1.</span> <span class="toc-text">1. ip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-service-protocol"><span class="toc-number">2.2.</span> <span class="toc-text">2. service&#x2F;protocol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-keyword"><span class="toc-number">2.3.</span> <span class="toc-text">3. keyword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-country"><span class="toc-number">2.4.</span> <span class="toc-text">4. country</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-product"><span class="toc-number">2.5.</span> <span class="toc-text">5. product</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-version"><span class="toc-number">2.6.</span> <span class="toc-text">6. version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-hostname"><span class="toc-number">2.7.</span> <span class="toc-text">7. hostname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-os"><span class="toc-number">2.8.</span> <span class="toc-text">8. os</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-net"><span class="toc-number">2.9.</span> <span class="toc-text">9. net</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-port"><span class="toc-number">2.10.</span> <span class="toc-text">10. port</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B"><span class="toc-number">2.11.</span> <span class="toc-text">11. 综合案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81-Zoomeye-Hacking"><span class="toc-number">3.</span> <span class="toc-text">三、 Zoomeye Hacking</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81fofa"><span class="toc-number">4.</span> <span class="toc-text">四、fofa</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#godeye"><span class="toc-number">5.</span> <span class="toc-text">godeye</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+  <aside id="krw-categories" class="widget widget-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/">CTF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XSS-Labs/">XSS-Labs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/CTF/" style="font-size: 0.67em;">CTF</a> <a href="/tags/WEB/" style="font-size: 0.6em;">WEB</a> <a href="/tags/XSS-Labs/" style="font-size: 0.6em;">XSS-Labs</a> <a href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" style="font-size: 0.73em;">web进阶区</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/" style="font-size: 0.6em;">信息搜集</a> <a href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" style="font-size: 0.8em;">攻防世界</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+          <a class="list-group-item" href="/2020/08/12/web%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B9%8B%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"><i class="fa  fa-book"></i> web信息收集之搜索引擎</a>
+        
+          <a class="list-group-item" href="/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAcomment%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区comment详解</a>
+        
+          <a class="list-group-item" href="/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAWeb-php-wrong-nginx-config%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区Web_php_wrong_nginx_config详解</a>
+        
+          <a class="list-group-item" href="/2020/08/10/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAi-got-id-200%E8%B6%85%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区i-got-id-200超详解</a>
+        
+          <a class="list-group-item" href="/2020/08/09/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAunfinish%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区unfinish详解</a>
+        
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/wumingzhilian"><i class="fa fa-telegram"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://twitter.com/wumingzhilian"><i class="fa fa-twitter"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/wumingzhilian"><i class="fa fa-github"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="/atom.xml"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2020 wuming 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with <i class="fa fa-heart throb" style="color:#d43f57"></i> by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Hosted by <a href="https://github.io" target="_blank">Github Pages</a></li>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <div id="aplayer"></div>
+<script>
+$.ajax({
+    type:"get",
+    url:"",
+    dataType:"json",
+    success: function(data){
+        new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: true,
+            order: 'random',
+            lrcType: 3,
+            audio: data
+        });
+    }
+});
+</script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+</body>
+</html>
