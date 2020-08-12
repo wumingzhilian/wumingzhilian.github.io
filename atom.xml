@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wumingzhilian.github.to/"/>
-  <updated>2020-08-12T02:14:03.297Z</updated>
+  <updated>2020-08-12T05:24:31.248Z</updated>
   <id>http://wumingzhilian.github.to/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透测试基础笔记</title>
+    <link href="http://wumingzhilian.github.to/2020/08/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/"/>
+    <id>http://wumingzhilian.github.to/2020/08/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-08-12T05:24:00.000Z</published>
+    <updated>2020-08-12T05:24:31.248Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;渗透测试&quot;&gt;&lt;a href=&quot;#渗透测试&quot; class=&quot;headerlink&quot; title=&quot;渗透测试&quot;&gt;&lt;/a&gt;渗透测试&lt;/h1&gt;&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="渗透测试" scheme="http://wumingzhilian.github.to/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="渗透测试" scheme="http://wumingzhilian.github.to/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>web信息收集之搜索引擎</title>

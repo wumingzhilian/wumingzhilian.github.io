@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>渗透测试基础笔记 | wumingzhilian</title>
+  <meta name="author" content="wuming" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    
+      <meta name="description" itemprop="description" content="" />
+    
+    <meta property="og:title" content="渗透测试基础笔记" />
+    
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" />
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@wumingzhilian" />
+      <meta name="twitter:title" content="渗透测试基础笔记" />
+      
+        <meta name="twitter:description" content="" />
+      
+      
+    
+  
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqusjs.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script async src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqus.js"></script>
+  
+<meta name="generator" content="Hexo 5.0.0"></head>
+<body class="custom-background">
+    <div id="kratos-wrapper">
+        <div id="kratos-page">
+            <div id="kratos-header">
+                <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+                <header id="kratos-header-section">
+                    <div class="container">
+                        <div class="nav-header">
+                            <div class="color-logo"><a href="/">wumingzhilian</a></div>
+                            <nav id="kratos-menu-wrap">
+                              <ul id="kratos-primary-menu" class="sf-menu">
+                              
+                                
+                                  <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                
+                              
+                                
+                                  <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                
+                              
+                                
+                                  <li><a href="/friends/"><i class="fa fa-mars-double"></i>好伙伴</a></li>
+                                
+                              
+                                
+                                  <li><a href="/about/"><li><i class="fa fa-paper-plane"></i>关于我</a></li>
+                                
+                              
+                              </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+
+<div class="kratos-start kratos-hero-2">
+    <!-- <div class="kratos-overlay"></div> -->
+    <div class="kratos-cover kratos-cover-2 text-center">
+        <div class="desc desc2 animate-box">
+            <a href="/"><h2>wumingzhilian</h2><br><span></span></a>
+        </div>
+    </div>
+</div>
+
+<div id="kratos-blog-post">
+    <div class="container">
+            <div class="row">
+                
+<div id="main">
+    <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">渗透测试基础笔记</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                    <i class="fa fa-calendar"></i> 2020-08-12
+                    <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
+                    <i class="fa fa-user"></i> 作者 wuming
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">渗透测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B%E7%8E%AF%E8%8A%82"><span class="toc-number">1.3.</span> <span class="toc-text">过程环节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%9A"><span class="toc-number">1.4.</span> <span class="toc-text">安全漏洞生命周期：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E6%8A%AB%E9%9C%B2%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">安全漏洞披露方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E5%85%AC%E5%BC%80%E8%B5%84%E6%BA%90%E5%BA%93"><span class="toc-number">1.6.</span> <span class="toc-text">安全漏洞公开资源库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#metasploit"><span class="toc-number">2.</span> <span class="toc-text">metasploit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#msf%E4%BD%93%E7%B3%BB%E6%A1%86%E6%9E%B6"><span class="toc-number">2.1.</span> <span class="toc-text">msf体系框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#msf%E6%A8%A1%E5%9D%97"><span class="toc-number">2.2.</span> <span class="toc-text">msf模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#msf-%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">msf 使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.4.</span> <span class="toc-text">信息收集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E6%8E%A2%E6%B5%8B%E4%B8%8E%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F"><span class="toc-number">3.</span> <span class="toc-text">主机探测与端口扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%BB%E8%B7%83%E4%B8%BB%E6%9C%BA%E6%89%AB%E6%8F%8F"><span class="toc-number">3.1.</span> <span class="toc-text">活跃主机扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BE%A8%E8%AF%86"><span class="toc-number">3.2.</span> <span class="toc-text">操作系统辨识</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E4%B8%8E%E6%9C%8D%E5%8A%A1%E7%B1%BB%E5%9E%8B%E6%8E%A2%E6%B5%8B"><span class="toc-number">4.</span> <span class="toc-text">端口扫描与服务类型探测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#msf-%E4%B8%AD%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8"><span class="toc-number">4.1.</span> <span class="toc-text">msf 中端口扫描器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nmap-%E6%89%AB%E6%8F%8F"><span class="toc-number">4.2.</span> <span class="toc-text">nmap 扫描</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%89%AB%E6%8F%8F%E4%B8%8E%E6%9F%A5%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">服务扫描与查点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E6%89%AB%E6%8F%8F"><span class="toc-number">5.1.</span> <span class="toc-text">常见网络服务扫描</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%A3%E4%BB%A4%E7%8C%9C%E6%B5%8B%E4%B8%8E%E5%97%85%E6%8E%A2"><span class="toc-number">6.</span> <span class="toc-text">口令猜测与嗅探</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-number">7.</span> <span class="toc-text">网络漏洞扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8"><span class="toc-number">7.1.</span> <span class="toc-text">漏洞扫描器原理与漏洞扫描器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E5%99%A8"><span class="toc-number">7.2.</span> <span class="toc-text">扫描器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E7%89%B9%E5%AE%9A%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E"><span class="toc-number">7.3.</span> <span class="toc-text">查找特定服务漏洞</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">8.</span> <span class="toc-text">漏洞扫描结果分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web-%E5%BA%94%E7%94%A8%E6%B8%97%E9%80%8F%E6%8A%80%E6%9C%AF"><span class="toc-number">9.</span> <span class="toc-text">Web 应用渗透技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OWASP-TOP-10"><span class="toc-number">9.1.</span> <span class="toc-text">OWASP TOP 10</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F"><span class="toc-number">10.</span> <span class="toc-text">内网渗透</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%94%BB%E9%98%B2%E6%8A%80%E6%9C%AF"><span class="toc-number">10.1.</span> <span class="toc-text">内存攻防技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA"><span class="toc-number">10.2.</span> <span class="toc-text">缓冲区溢出</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ms08-067"><span class="toc-number">11.</span> <span class="toc-text">ms08_067</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB"><span class="toc-number">12.</span> <span class="toc-text">客户端渗透攻击</span></a></li></ol>
+                    </div>
+                
+                <hr />
+                <h1 id="渗透测试"><a href="#渗透测试" class="headerlink" title="渗透测试"></a>渗透测试</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>渗透测试就是一种通过模拟恶意攻击者的技术与方法，挫败目标系统安全控制措施，取得访问控制权，并发现具备业务影响后果安全隐患的一种安全测试与评估方式。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>黑盒测试</li>
+<li>白盒测试</li>
+<li>灰盒测试<h2 id="过程环节"><a href="#过程环节" class="headerlink" title="过程环节"></a>过程环节</h2></li>
+<li>前期交互阶段</li>
+<li>情报收集阶段</li>
+<li>威胁建模阶段</li>
+<li>漏洞分析阶段</li>
+<li>渗透攻击阶段</li>
+<li>后渗透攻击阶段</li>
+<li>报告阶段<h2 id="安全漏洞生命周期："><a href="#安全漏洞生命周期：" class="headerlink" title="安全漏洞生命周期："></a>安全漏洞生命周期：</h2></li>
+<li>安全漏洞研究与挖掘</li>
+<li>Exploit代码开发与测试</li>
+<li>安全漏洞/Exploit代码限于封闭团队</li>
+<li>安全漏洞/Exploit代码开始扩散</li>
+<li>攻击工具/恶意程序出现并传播</li>
+<li>Exploit/攻击工具/恶意程序大规模传播并危害互联网</li>
+<li>Exploit/攻击工具/恶意程序逐渐消亡<br><img src="https://img-blog.csdnimg.cn/20200812130406148.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+<h2 id="安全漏洞披露方式"><a href="#安全漏洞披露方式" class="headerlink" title="安全漏洞披露方式"></a>安全漏洞披露方式</h2><p>1.完全公开披露<br>2.负责任的公开披露<br>3.进入地下经济链<br>4.小范围利用直至被动披露</p>
+<h2 id="安全漏洞公开资源库"><a href="#安全漏洞公开资源库" class="headerlink" title="安全漏洞公开资源库"></a>安全漏洞公开资源库</h2><ul>
+<li>CNNVD: 中国国家漏洞库，由中国信息安全测评中心维护。(<a target="_blank" rel="noopener" href="http://www.cnnvd.org.cn/">www.cnnvd.org.cn</a>)</li>
+<li>CNVD: 中国国家信息安全漏洞共享平台，由国家计算机网络应急技术处理协调中心(CNCERT/CC)维护。(<a target="_blank" rel="noopener" href="http://www.cnvd.org.cn/">www.cnvd.org.cn</a>)<ul>
+<li>乌云安全漏洞报告平台: 民间组织。已无。</li>
+</ul>
+</li>
+<li>SCAP中文社区: 民间组织项目。(<a target="_blank" rel="noopener" href="http://www.scap.org.cn/">http://www.scap.org.cn</a>)</li>
+</ul>
+<p>国外的安全漏洞信息库主要包括:</p>
+<ul>
+<li>CVE: (Common Vulnerability and Exposures,通过漏洞与披露)，已成为安全漏洞命名索引的业界事实标准</li>
+<li>NVD: (National Vulnerability Database,国家漏洞数据库)，是美国官方根据NIST的SCAP标准协议所描述的安全漏洞管理信息库。</li>
+<li>SecurityFocus</li>
+<li>OSVDB<h1 id="metasploit"><a href="#metasploit" class="headerlink" title="metasploit"></a>metasploit</h1><h2 id="msf体系框架"><a href="#msf体系框架" class="headerlink" title="msf体系框架"></a>msf体系框架</h2></li>
+<li>基础库文件</li>
+<li>模块</li>
+<li>插件</li>
+<li>接口</li>
+<li>功能程序<h2 id="msf模块"><a href="#msf模块" class="headerlink" title="msf模块"></a>msf模块</h2></li>
+<li>Auxiliary 辅助模块</li>
+</ul>
+<p>用于信息搜集以及一些不需要payload的攻击（如DOS）</p>
+<ul>
+<li>Exploits 渗透攻击模块</li>
+</ul>
+<p>主动渗透攻击： 对安全漏洞主动攻击</p>
+<p>被动渗透攻击： 对于无法主动将数据从远程输入到客户端软件中，可以诱导目标用户打开我们构造的“邪恶的”网页、电子邮件与编辑软件。</p>
+<ul>
+<li>Payloads 攻击载荷模块<br>攻击载荷是在渗透攻击成功后促使目标系统运行的一段植入代码，通常作用是为渗透攻击者打开在目标系统上的控制会话连接。</li>
+</ul>
+<p>攻击载荷模块分为独立(Singles)、传输器(Stager)、传输体(Stage)三种类型。</p>
+<ul>
+<li>Nops 空指令模块</li>
+</ul>
+<p>用来在攻击载荷中添加空指令区，以提高攻击可靠性。</p>
+<ul>
+<li>Encoders 编码器模块<br>确保攻击载荷中不会出现渗透攻击过程中应加以避免的“坏字符”。还能对攻击载荷进行免杀处理。</li>
+</ul>
+<p>典型坏字符<code>0x00</code>,会截断后边内容，从而使攻击载荷无法正常运行。</p>
+<ul>
+<li>Post 后渗透模块</li>
+</ul>
+<p>主要支持在渗透攻击取得目标系统远程控制权之后，在受控系统中进行各式各样的后渗透攻击动作，比如获取敏感信息、进一步扩展、实施跳板攻击等。</p>
+<ul>
+<li>**evasion **</li>
+</ul>
+<p>5.0版本新增模块，用于免杀</p>
+<h2 id="msf-使用"><a href="#msf-使用" class="headerlink" title="msf 使用"></a>msf 使用</h2><p>kali中自带msf。</p>
+<p>输入<code>msfconsole</code>即可进入msf，</p>
+<p>输入help可查看所支持的命令列表。</p>
+<p><code>help [COMMAND]</code>进一步查看该命令的使用帮助信息。例如help search.</p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>testfire.net 是一个包含很多典型web漏洞的模拟银行模拟网站。</p>
+<ol>
+<li><p>whois 域名注册信息查询</p>
+<p> whois -h</p>
+<p> whois testfire.net</p>
+</li>
+<li><p>nslookup 与 dig 域名查询</p>
+<p> nslookup 与 dig 两个工具功能上类似，都可以查询域名对应的IP地址。 dig 工具可以从该域名的官方DNS服务器上的查询到精确的权威应答，而nslookup只会得到DNS解析服务器保存在Cache中的非权威应答。</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; nslookup</span><br><span class="line">[*] <span class="built_in">exec</span>: nslookup</span><br><span class="line"></span><br><span class="line">&gt; <span class="built_in">set</span> <span class="built_in">type</span>=A</span><br><span class="line">&gt; testfire.net</span><br><span class="line">Server:        192.168.2.2</span><br><span class="line">Address:    192.168.2.2<span class="comment">#53</span></span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">Name:    testfire.net</span><br><span class="line">Address: 65.61.137.117</span><br></pre></td></tr></table></figure>
+
+<p>使用set type=A 对其IP进行解析，set type=MX 查找邮件转发服务器。</p>
+<p><code>dig @&lt;dns服务器&gt; &lt;待查询域名&gt;</code>，可在待查询域名后边加上A、NS、MX等选项查找特定类型的DNS解析记录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">msf5 &gt; nslookup</span><br><span class="line">[*] exec: nslookup</span><br><span class="line"></span><br><span class="line">&gt; set type&#x3D;NS</span><br><span class="line">&gt; firetest.net</span><br><span class="line"></span><br><span class="line">msf5 &gt; dig @ns3.dnsmadeeasy.com. firetest.net</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>IP2Location 地理位置查询</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.maxmind.com/en/home">https://www.maxmind.com/en/home</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cz88.net/">http://www.cz88.net/</a></p>
+<ol start="4">
+<li>netcraft 网站提供的信息查询服务</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://searchdns.netcraft.com/">https://searchdns.netcraft.com</a></p>
+<ol start="5">
+<li>IP2Domain 反查域名</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.ip-adress.com/reverse-ip-lookup">https://www.ip-adress.com/reverse-ip-lookup</a></p>
+<p>输入ip反查哪些域名指向同一ip.</p>
+<ol start="6">
+<li>站长之家</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="http://tool.chinaz.com/">http://tool.chinaz.com/</a></p>
+<ol start="7">
+<li>搜索引擎</li>
+</ol>
+<h1 id="主机探测与端口扫描"><a href="#主机探测与端口扫描" class="headerlink" title="主机探测与端口扫描"></a>主机探测与端口扫描</h1><h2 id="活跃主机扫描"><a href="#活跃主机扫描" class="headerlink" title="活跃主机扫描"></a>活跃主机扫描</h2><ol>
+<li>ping</li>
+<li>msf 主机发现模块</li>
+<li>nmap<h2 id="操作系统辨识"><a href="#操作系统辨识" class="headerlink" title="操作系统辨识"></a>操作系统辨识</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -o</span><br><span class="line"></span><br><span class="line">nmap -A</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="端口扫描与服务类型探测"><a href="#端口扫描与服务类型探测" class="headerlink" title="端口扫描与服务类型探测"></a>端口扫描与服务类型探测</h1><h2 id="msf-中端口扫描器"><a href="#msf-中端口扫描器" class="headerlink" title="msf 中端口扫描器"></a>msf 中端口扫描器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">msf5 auxiliary(scanner&#x2F;portscan&#x2F;syn) &gt; search portscan</span><br><span class="line"></span><br><span class="line">Matching Modules</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">   #  Name                                              Disclosure Date  Rank    Check  Description</span><br><span class="line">          -  ----                                              ---------------  ----    -----  -----------</span><br><span class="line">          0  auxiliary&#x2F;scanner&#x2F;http&#x2F;wordpress_pingback_access                   normal  No     Wordpress Pingback Locator</span><br><span class="line">          1  auxiliary&#x2F;scanner&#x2F;natpmp&#x2F;natpmp_portscan                           normal  No     NAT-PMP External Port Scanner</span><br><span class="line">          2  auxiliary&#x2F;scanner&#x2F;portscan&#x2F;ack                                     normal  No     TCP ACK Firewall Scanner</span><br><span class="line">      3  auxiliary&#x2F;scanner&#x2F;portscan&#x2F;ftpbounce                               normal  No     FTP Bounce Port Scanner</span><br><span class="line">          4  auxiliary&#x2F;scanner&#x2F;portscan&#x2F;syn                                     normal  No     TCP SYN Port Scanner</span><br><span class="line">          5  auxiliary&#x2F;scanner&#x2F;portscan&#x2F;tcp                                     normal  No     TCP Port Scanner</span><br><span class="line">          6  auxiliary&#x2F;scanner&#x2F;portscan&#x2F;xmas                                    normal  No     TCP &quot;XMas&quot; Port Scanner</span><br><span class="line">          7  auxiliary&#x2F;scanner&#x2F;sap&#x2F;sap_router_portscanner                       normal  No     SAPRouter Port Scanner</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Interact with a module by name or index, for example use 7 or use auxiliary&#x2F;scanner&#x2F;sap&#x2F;sap_router_portscanner</span><br><span class="line"></span><br><span class="line">msf5 auxiliary(scanner&#x2F;portscan&#x2F;syn) &gt; set RHOSTS 192.168.2.1</span><br><span class="line">RHOSTS &#x3D;&gt; 192.168.2.1</span><br><span class="line">msf5 auxiliary(scanner&#x2F;portscan&#x2F;syn) &gt; set THREADS 20</span><br><span class="line">THREADS &#x3D;&gt; 20</span><br><span class="line">msf5 auxiliary(scanner&#x2F;portscan&#x2F;syn) &gt; run</span><br><span class="line"></span><br><span class="line">[+]  TCP OPEN 192.168.2.1:135</span><br><span class="line">[+]  TCP OPEN 192.168.2.1:139</span><br><span class="line">。。。。。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="nmap-扫描"><a href="#nmap-扫描" class="headerlink" title="nmap 扫描"></a>nmap 扫描</h2><p><a target="_blank" rel="noopener" href="https://yanmie-art.github.io/2020/07/19/nmap%E4%BD%BF%E7%94%A8/">https://yanmie-art.github.io/2020/07/19/nmap%E4%BD%BF%E7%94%A8/</a></p>
+<h1 id="服务扫描与查点"><a href="#服务扫描与查点" class="headerlink" title="服务扫描与查点"></a>服务扫描与查点</h1><p>msf终端<code>search name_version</code>查找所有可用的服务查点模块。</p>
+<h2 id="常见网络服务扫描"><a href="#常见网络服务扫描" class="headerlink" title="常见网络服务扫描"></a>常见网络服务扫描</h2><ol>
+<li>Telnet 服务扫描</li>
+<li>ssh服务扫描</li>
+<li>数据库服务查点</li>
+<li>开放代理探测与利用</li>
+</ol>
+<h1 id="口令猜测与嗅探"><a href="#口令猜测与嗅探" class="headerlink" title="口令猜测与嗅探"></a>口令猜测与嗅探</h1><ol>
+<li>ssh 服务口令猜解</li>
+<li>psnuffle 口令嗅探</li>
+</ol>
+<h1 id="网络漏洞扫描"><a href="#网络漏洞扫描" class="headerlink" title="网络漏洞扫描"></a>网络漏洞扫描</h1><h2 id="漏洞扫描器原理与漏洞扫描器"><a href="#漏洞扫描器原理与漏洞扫描器" class="headerlink" title="漏洞扫描器原理与漏洞扫描器"></a>漏洞扫描器原理与漏洞扫描器</h2><p>网络漏洞扫描指的是利用一些自动化的工具来发现网络上各类主机设备的安全漏洞，这些自动化工具通常被称为漏洞扫描器。</p>
+<ul>
+<li>黑盒扫描</li>
+<li>白盒扫描</li>
+</ul>
+<h2 id="扫描器"><a href="#扫描器" class="headerlink" title="扫描器"></a>扫描器</h2><p>X-scan<br>AppScan<br>AWVS<br>WebInspect<br>Netsparker<br>WVSS<br>安恒明鉴<br>Nessus<br>nexpose<br>启明天镜<br>RSAS</p>
+<h2 id="查找特定服务漏洞"><a href="#查找特定服务漏洞" class="headerlink" title="查找特定服务漏洞"></a>查找特定服务漏洞</h2><p>nmap</p>
+<h1 id="漏洞扫描结果分析"><a href="#漏洞扫描结果分析" class="headerlink" title="漏洞扫描结果分析"></a>漏洞扫描结果分析</h1><p>漏洞扫描结果分析</p>
+<h1 id="Web-应用渗透技术"><a href="#Web-应用渗透技术" class="headerlink" title="Web 应用渗透技术"></a>Web 应用渗透技术</h1><h2 id="OWASP-TOP-10"><a href="#OWASP-TOP-10" class="headerlink" title="OWASP TOP 10"></a>OWASP TOP 10</h2><ol>
+<li>SQL 注入攻击</li>
+<li>跨站脚本攻击(xss)</li>
+<li>跨站请求伪造(csrf)</li>
+<li>会话认证管理缺陷(BASM)</li>
+<li>安全误配置</li>
+<li>不安全密码存储</li>
+<li>不安全的对象参考</li>
+<li>限制 url 访问失败</li>
+<li>缺乏传输层保护</li>
+<li>未验证的重定向和跳转</li>
+</ol>
+<p>实例可寻找各大靶场。</p>
+<h1 id="内网渗透"><a href="#内网渗透" class="headerlink" title="内网渗透"></a>内网渗透</h1><h2 id="内存攻防技术"><a href="#内存攻防技术" class="headerlink" title="内存攻防技术"></a>内存攻防技术</h2><p>内存攻击指的是攻击者利用软件安全漏洞，构造恶意输入导致软件再处理输入数据时出现非预期错误，将输入数据写入内存中的某些特定敏感位置，从而劫持软件控制流，转而执行外部输入的指令代码，造成目标系统被获取远程控制或拒绝服务。</p>
+<h2 id="缓冲区溢出"><a href="#缓冲区溢出" class="headerlink" title="缓冲区溢出"></a>缓冲区溢出</h2><p>原理：缓冲区溢出漏洞是程序由于缺乏对缓冲区边界条件检查而引起的一种异常行为，通常是程序向缓冲区中写数据，但内容超过了程序员设定的缓冲区边界，从而覆盖了相邻的内存区域，造成覆盖程序中的其他变量甚至影响控制流的敏感数据，造成程序的非预期行为。</p>
+<p>分为栈溢出和堆溢出。</p>
+<h1 id="ms08-067"><a href="#ms08-067" class="headerlink" title="ms08_067"></a>ms08_067</h1><h1 id="客户端渗透攻击"><a href="#客户端渗透攻击" class="headerlink" title="客户端渗透攻击"></a>客户端渗透攻击</h1><p>客户端渗透攻击指的是攻击者构造畸形数据发送给目标主机，用户在使用含有漏洞缺陷的客户端应用程序处理这些数据时，发生程序内部处理流程的错误，执行了内嵌于数据中的恶意代码，从而导致被渗透入秦。</p>
+<p>这类攻击针对的是处于客户端一侧的软件程序，最常见的以浏览器、Office为代表的流行应用软件。</p>
+<p>转自：<a target="_blank" rel="noopener" href="https://yanmie-art.github.io/2020/07/27/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/">https://yanmie-art.github.io/2020/07/27/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%AC%94%E8%AE%B0/</a></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://wumingzhilian.github.to/2020/08/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://wumingzhilian.github.to/2020/08/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/";
+            const title         = "「渗透测试基础笔记」";
+            const excerpt       = `渗透测试概念渗透测试就是一种通过模拟恶意攻击者的技术与方法，挫败目标系统安全控制措施，取得访问控制权，并发现具备业务影响后果安全隐患的一种安全测试与评估方式。
+分类
+黑盒测试
+白盒测试
+灰盒测试过程环节
+前期交互阶段
+情报收集阶段
+威...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag">渗透测试</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-08-12</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" web信息收集之搜索引擎" href="/2020/08/12/web信息收集之搜索引擎/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+            <div id="disqus_thread"></div>
+<script>
+    $(function(){
+        window.DISQUS = null;
+        new DisqusJS({
+            shortname: '',
+            siteName: '',
+            identifier: '2020/08/12/渗透测试基础笔记/',
+            url: 'http://wumingzhilian.github.to/2020/08/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/',
+            api: '',
+            apikey: '',
+            admin: '',
+            adminLabel: ''
+        });
+    });
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/SukkaW/DisqusJS">comments powered by DisqusJS.</a></noscript>
+        
+    </article>
+</section>
+</div>
+        
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.png" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">渗透测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B%E7%8E%AF%E8%8A%82"><span class="toc-number">1.3.</span> <span class="toc-text">过程环节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%9A"><span class="toc-number">1.4.</span> <span class="toc-text">安全漏洞生命周期：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E6%8A%AB%E9%9C%B2%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">安全漏洞披露方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E5%85%AC%E5%BC%80%E8%B5%84%E6%BA%90%E5%BA%93"><span class="toc-number">1.6.</span> <span class="toc-text">安全漏洞公开资源库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#metasploit"><span class="toc-number">2.</span> <span class="toc-text">metasploit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#msf%E4%BD%93%E7%B3%BB%E6%A1%86%E6%9E%B6"><span class="toc-number">2.1.</span> <span class="toc-text">msf体系框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#msf%E6%A8%A1%E5%9D%97"><span class="toc-number">2.2.</span> <span class="toc-text">msf模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#msf-%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">msf 使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.4.</span> <span class="toc-text">信息收集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E6%8E%A2%E6%B5%8B%E4%B8%8E%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F"><span class="toc-number">3.</span> <span class="toc-text">主机探测与端口扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%BB%E8%B7%83%E4%B8%BB%E6%9C%BA%E6%89%AB%E6%8F%8F"><span class="toc-number">3.1.</span> <span class="toc-text">活跃主机扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BE%A8%E8%AF%86"><span class="toc-number">3.2.</span> <span class="toc-text">操作系统辨识</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E4%B8%8E%E6%9C%8D%E5%8A%A1%E7%B1%BB%E5%9E%8B%E6%8E%A2%E6%B5%8B"><span class="toc-number">4.</span> <span class="toc-text">端口扫描与服务类型探测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#msf-%E4%B8%AD%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8"><span class="toc-number">4.1.</span> <span class="toc-text">msf 中端口扫描器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nmap-%E6%89%AB%E6%8F%8F"><span class="toc-number">4.2.</span> <span class="toc-text">nmap 扫描</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%89%AB%E6%8F%8F%E4%B8%8E%E6%9F%A5%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">服务扫描与查点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E6%89%AB%E6%8F%8F"><span class="toc-number">5.1.</span> <span class="toc-text">常见网络服务扫描</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%A3%E4%BB%A4%E7%8C%9C%E6%B5%8B%E4%B8%8E%E5%97%85%E6%8E%A2"><span class="toc-number">6.</span> <span class="toc-text">口令猜测与嗅探</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-number">7.</span> <span class="toc-text">网络漏洞扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E5%99%A8"><span class="toc-number">7.1.</span> <span class="toc-text">漏洞扫描器原理与漏洞扫描器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E5%99%A8"><span class="toc-number">7.2.</span> <span class="toc-text">扫描器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E7%89%B9%E5%AE%9A%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E"><span class="toc-number">7.3.</span> <span class="toc-text">查找特定服务漏洞</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">8.</span> <span class="toc-text">漏洞扫描结果分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Web-%E5%BA%94%E7%94%A8%E6%B8%97%E9%80%8F%E6%8A%80%E6%9C%AF"><span class="toc-number">9.</span> <span class="toc-text">Web 应用渗透技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OWASP-TOP-10"><span class="toc-number">9.1.</span> <span class="toc-text">OWASP TOP 10</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F"><span class="toc-number">10.</span> <span class="toc-text">内网渗透</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%94%BB%E9%98%B2%E6%8A%80%E6%9C%AF"><span class="toc-number">10.1.</span> <span class="toc-text">内存攻防技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA"><span class="toc-number">10.2.</span> <span class="toc-text">缓冲区溢出</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ms08-067"><span class="toc-number">11.</span> <span class="toc-text">ms08_067</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB"><span class="toc-number">12.</span> <span class="toc-text">客户端渗透攻击</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+  <aside id="krw-categories" class="widget widget-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/">CTF</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XSS-Labs/">XSS-Labs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a><span class="category-list-count">2</span></li></ul>
+  </aside>
+
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/CTF/" style="font-size: 0.67em;">CTF</a> <a href="/tags/WEB/" style="font-size: 0.6em;">WEB</a> <a href="/tags/XSS-Labs/" style="font-size: 0.6em;">XSS-Labs</a> <a href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" style="font-size: 0.73em;">web进阶区</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/" style="font-size: 0.6em;">信息搜集</a> <a href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" style="font-size: 0.8em;">攻防世界</a> <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" style="font-size: 0.6em;">渗透测试</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+          <a class="list-group-item" href="/2020/08/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/"><i class="fa  fa-book"></i> 渗透测试基础笔记</a>
+        
+          <a class="list-group-item" href="/2020/08/12/web%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B9%8B%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"><i class="fa  fa-book"></i> web信息收集之搜索引擎</a>
+        
+          <a class="list-group-item" href="/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAcomment%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区comment详解</a>
+        
+          <a class="list-group-item" href="/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAWeb-php-wrong-nginx-config%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区Web_php_wrong_nginx_config详解</a>
+        
+          <a class="list-group-item" href="/2020/08/10/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAi-got-id-200%E8%B6%85%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区i-got-id-200超详解</a>
+        
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/wumingzhilian"><i class="fa fa-telegram"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://twitter.com/wumingzhilian"><i class="fa fa-twitter"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/wumingzhilian"><i class="fa fa-github"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="/atom.xml"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2020 wuming 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with <i class="fa fa-heart throb" style="color:#d43f57"></i> by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Hosted by <a href="https://github.io" target="_blank">Github Pages</a></li>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <div id="aplayer"></div>
+<script>
+$.ajax({
+    type:"get",
+    url:"",
+    dataType:"json",
+    success: function(data){
+        new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: true,
+            order: 'random',
+            lrcType: 3,
+            audio: data
+        });
+    }
+});
+</script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+</body>
+</html>
