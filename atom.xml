@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wumingzhilian.github.to/"/>
-  <updated>2020-08-12T05:24:31.248Z</updated>
+  <updated>2020-08-13T06:10:41.277Z</updated>
   <id>http://wumingzhilian.github.to/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>攻防世界web进阶区Zhuanxv详解</title>
+    <link href="http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAZhuanxv%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAZhuanxv%E8%AF%A6%E8%A7%A3/</id>
+    <published>2020-08-13T06:10:00.000Z</published>
+    <updated>2020-08-13T06:10:41.277Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;h2 id=&quot;提示&quot;&gt;&lt;a href=&quot;#提示&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="CTF" scheme="http://wumingzhilian.github.to/categories/CTF/"/>
+    
+    
+      <category term="攻防世界" scheme="http://wumingzhilian.github.to/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/"/>
+    
+      <category term="web进阶区" scheme="http://wumingzhilian.github.to/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>渗透测试基础笔记</title>

