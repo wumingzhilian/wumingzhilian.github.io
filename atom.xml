@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wumingzhilian.github.to/"/>
-  <updated>2020-10-18T12:37:46.515Z</updated>
+  <updated>2020-10-18T12:51:10.015Z</updated>
   <id>http://wumingzhilian.github.to/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Sql注入脚本</title>
+    <link href="http://wumingzhilian.github.to/2020/10/18/Sql/"/>
+    <id>http://wumingzhilian.github.to/2020/10/18/Sql/</id>
+    <published>2020-10-18T12:49:00.000Z</published>
+    <updated>2020-10-18T12:51:10.015Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;自增脚本&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Sql注入" scheme="http://wumingzhilian.github.to/categories/Sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+      <category term="Sql注入" scheme="http://wumingzhilian.github.to/tags/Sql%E6%B3%A8%E5%85%A5/"/>
+    
+      <category term="脚本" scheme="http://wumingzhilian.github.to/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>Sql注入总结学习</title>
@@ -542,35 +572,6 @@
     <id>http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAbug%E8%AF%A6%E8%A7%A3/</id>
     <published>2020-08-07T15:53:00.000Z</published>
     <updated>2020-08-07T15:53:58.284Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-    
-      <category term="CTF" scheme="http://wumingzhilian.github.to/categories/CTF/"/>
-    
-    
-      <category term="攻防世界" scheme="http://wumingzhilian.github.to/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/"/>
-    
-      <category term="web进阶区" scheme="http://wumingzhilian.github.to/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>攻防世界web进阶区Cat详解</title>
-    <link href="http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://wumingzhilian.github.to/2020/08/07/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BACat%E8%AF%A6%E8%A7%A3/</id>
-    <published>2020-08-07T15:52:00.000Z</published>
-    <updated>2020-08-07T15:53:06.207Z</updated>
     
     <summary type="html">
     

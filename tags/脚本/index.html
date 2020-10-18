@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>攻防世界web进阶区ics-04详解 | wumingzhilian</title>
+  <title>wumingzhilian</title>
   <meta name="author" content="wuming" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -12,20 +12,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    
-      <meta name="description" itemprop="description" content="" />
-    
-    <meta property="og:title" content="攻防世界web进阶区ics-04详解" />
-    
-    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/07/ics-05/" />
+    <meta name="description" itemprop="description" content="" />
+    <meta name="keywords" content="" />
+    <meta property="og:title" content="wumingzhilian" />
+    <meta property="og:image" content="http://wumingzhilian.github.to/null" />
+    <meta property="og:url" content="" />
     
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@wumingzhilian" />
-      <meta name="twitter:title" content="攻防世界web进阶区ics-04详解" />
-      
-        <meta name="twitter:description" content="" />
-      
-      
+      <meta name="twitter:title" content="wumingzhilian" />
+      <meta name="twitter:description" content="" />
+      <meta name="twitter:image" content="http://wumingzhilian.github.to/null" />
     
   
   <link rel="alternate" href="atom.xml" type="application/atom+xml">
@@ -104,164 +101,52 @@
             <div class="row">
                 
 <div id="main">
-    <section class="col-md-8">
-    <article>
-        <div class="kratos-hentry kratos-post-inner clearfix">
-            <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">攻防世界web进阶区ics-04详解</h1>
+    
+        <section class="col-md-8">
+            
                 
-                <div class="kratos-post-meta text-center">
-                    <span>
-                    <i class="fa fa-calendar"></i> 2020-08-07
-                    <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/CTF/">CTF</a>
-                    <i class="fa fa-user"></i> 作者 wuming
-                    </span>
-                </div>
-            </header>
-            <div class="kratos-post-content">
+                    <article class="kratos-hentry clearfix">
+                        <div class="kratos-entry-border-new clearfix">
+                            
+                            <div class="kratos-entry-thumb-new">
+                                <a href="/2020/10/18/Sql/">
+                                    
+                                        <img class="kratos-entry-thumb-new-img">
+                                    
+                                </a>
+                            </div>
+                            <div class="kratos-post-inner-new">
+                                <header class="kratos-entry-header-new">
+                                        <a class="label-link" href="/categories/Sql%E6%B3%A8%E5%85%A5/">Sql注入</a>
+                                    <h2 class="kratos-entry-title-new"><a href="/2020/10/18/Sql/">Sql注入脚本</a>
+                                </header>
+                                <div class="kratos-entry-content-new">
+                                    <p>
+                                        
+                                            自增脚本
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546# coding:utf-8import requests...
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                            <footer class="kratos-post-meta-new">
+                                <span class="pull-left">
+                                    <a><i class="fa fa-calendar"></i></a><a>2020-10-18</a>
+                                    <a><i class="fa fa-tags"></i></a>
+                                    <a class="tag-none-link" href="/tags/Sql%E6%B3%A8%E5%85%A5/" rel="tag">Sql注入</a>, <a class="tag-none-link" href="/tags/%E8%84%9A%E6%9C%AC/" rel="tag">脚本</a>
+                                </span>
+                                <span class="pull-right">
+                                    <a class="read-more" href="/2020/10/18/Sql/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
+                                </span>
+                            </footer>
+                        </div>
+                    </article>
                 
-                    <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
-                    </div>
-                
-                <hr />
-                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/2020080700102895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。</p>
-<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p><img src="https://img-blog.csdnimg.cn/20200807003522432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们发现有三个入口<br>注册，登录，找回密码<br>我们使用sqlmap扫描，发现只有找回密码可以进行sql注入<br><img src="https://img-blog.csdnimg.cn/20200807003634759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003728363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>python2 sqlmap.py -r       -batch --dbs</code><br><img src="https://img-blog.csdnimg.cn/20200807003744543.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807003939249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>cert中只有一个表 user<br>我们看他字段<br><img src="https://img-blog.csdnimg.cn/20200807004012923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200807004650559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20200807004939357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>登录成功获取flag<br>当然，这是在可以获取到密码的情况</p>
-<p>实际上我们并不能一定可以解决</p>
-<p>那么我们可以进行重复注册<br><img src="https://img-blog.csdnimg.cn/20200807005120292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们尝试去覆盖他的原来的账号密码，发现也是可以登陆的</p>
+            
+            
+            
+        </section>
 
-            </div>
-            
-                <div class="kratos-copyright text-center clearfix">
-                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
-                </div>
-            
-            <footer class="kratos-entry-footer clearfix">
-                
-                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
-                    
-                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
-                    
-                    
-                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
-                        <div class="share-wrap" style="display: none;">
-    <div class="share-group">
-        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-qq"></i>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-star"></i>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-weixin"></i>
-            </div>
-            <div class="share-int">
-                <div class="qrcode" id="wechat-qr"></div>
-                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-weibo"></i>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-facebook"></i>
-            </div>
-        </a>
-        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
-            <div class="icon-wrap">
-                <i class="fa fa-twitter"></i>
-            </div>
-        </a>
-    </div>
-    <script type="text/javascript">
-        $(()=>{
-            new QRCode("wechat-qr", {
-                text: "http://wumingzhilian.github.to/2020/08/07/ics-05/",
-                width: 150,
-                height: 150,
-                correctLevel : QRCode.CorrectLevel.H
-            });
-        });
-        function share(dest) {
-            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
-            const weiboBase     = "https://service.weibo.com/share/share.php?";
-            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
-            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
-            const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://wumingzhilian.github.to/2020/08/07/ics-05/";
-            const title         = "「攻防世界web进阶区ics-04详解」";
-            const excerpt       = `题目打开环境，发现就一个登录和注册功能可以用。还有一个用户找回密码功能。
-详解我们发现有三个入口注册，登录，找回密码我们使用sqlmap扫描，发现只有找回密码可以进行sql注入python2 sqlmap.py -r       -b...`;
-            let _URL;
-            switch (dest) {
-                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
-                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
-                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
-                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
-                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
-            }
-            window.open(_URL);
-        };
-    </script>
-</div>
-                    
-                    </div>
-                
-                <div class="footer-tag clearfix">
-                    <div class="pull-left">
-                    <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/CTF/" rel="tag">CTF</a>, <a class="tag-none-link" href="/tags/WEB/" rel="tag">WEB</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
-                    </div>
-                    <div class="pull-date">
-                    <span>最后编辑：2020-08-07</span>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        
-            <nav class="navigation post-navigation clearfix" role="navigation">
-                
-                <div class="nav-previous clearfix">
-                    <a title=" 攻防世界web进阶区FlatScience详解" href="/2020/08/06/攻防世界web进阶区FlatScience详解/">&lt; 上一篇</a>
-                </div>
-                
-                
-                <div class="nav-next clearfix">
-                    <a title=" 攻防世界web进阶区Cat详解" href="/2020/08/07/攻防世界web进阶区Cat详解/">下一篇 &gt;</a>
-                </div>
-                
-            </nav>
-        
-        
-            <div id="disqus_thread"></div>
-<script>
-    $(function(){
-        window.DISQUS = null;
-        new DisqusJS({
-            shortname: '',
-            siteName: '',
-            identifier: '2020/08/07/ics-05/',
-            url: 'http://wumingzhilian.github.to/2020/08/07/ics-05/',
-            api: '',
-            apikey: '',
-            admin: '',
-            adminLabel: ''
-        });
-    });
-</script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/SukkaW/DisqusJS">comments powered by DisqusJS.</a></noscript>
-        
-    </article>
-</section>
 </div>
         
             <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
@@ -276,7 +161,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">详解</span></a></li></ol></li></ol>
+            <p class="text-center"></p>
         
     </div>
 </aside>
