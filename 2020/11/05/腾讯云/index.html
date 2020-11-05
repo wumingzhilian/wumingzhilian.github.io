@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>攻防世界web进阶区web2详解 | wumingzhilian</title>
+  <title>腾讯云 | wumingzhilian</title>
   <meta name="author" content="wuming" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,13 +15,13 @@
     
       <meta name="description" itemprop="description" content="" />
     
-    <meta property="og:title" content="攻防世界web进阶区web2详解" />
+    <meta property="og:title" content="腾讯云" />
     
-    <meta property="og:url" content="http://wumingzhilian.github.to/2020/08/04/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAweb2%E8%AF%A6%E8%A7%A3/" />
+    <meta property="og:url" content="http://wumingzhilian.github.to/2020/11/05/%E8%85%BE%E8%AE%AF%E4%BA%91/" />
     
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@wumingzhilian" />
-      <meta name="twitter:title" content="攻防世界web进阶区web2详解" />
+      <meta name="twitter:title" content="腾讯云" />
       
         <meta name="twitter:description" content="" />
       
@@ -108,34 +108,20 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">攻防世界web进阶区web2详解</h1>
+                <h1 class="kratos-entry-title text-center">腾讯云</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
-                    <i class="fa fa-calendar"></i> 2020-08-04
-                    <i class="fa fa-folder"></i> 分类于 <a class="label-link" href="/categories/CTF/">CTF</a>
+                    <i class="fa fa-calendar"></i> 2020-11-05
+                    <i class="fa fa-folder"></i> 分类于 
                     <i class="fa fa-user"></i> 作者 wuming
                     </span>
                 </div>
             </header>
             <div class="kratos-post-content">
                 
-                    <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#strrev%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">strrev函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substr"><span class="toc-number">1.1.2.</span> <span class="toc-text">substr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ord"><span class="toc-number">1.1.3.</span> <span class="toc-text">ord</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chr"><span class="toc-number">1.1.4.</span> <span class="toc-text">chr()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#str-rot13"><span class="toc-number">1.1.5.</span> <span class="toc-text">str_rot13()</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                
                 <hr />
-                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="https://img-blog.csdnimg.cn/2020073111430496.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$miwen=<span class="string">&quot;a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">encode</span>(<span class="params">$str</span>)</span>&#123;</span><br><span class="line">    $_o=strrev($str);</span><br><span class="line">    <span class="comment">// echo $_o;</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">for</span>($_0=<span class="number">0</span>;$_0&lt;strlen($_o);$_0++)&#123;</span><br><span class="line">       </span><br><span class="line">        $_c=substr($_o,$_0,<span class="number">1</span>);</span><br><span class="line">        $__=ord($_c)+<span class="number">1</span>;</span><br><span class="line">        $_c=chr($__);</span><br><span class="line">        $_=$_.$_c;   </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> str_rot13(strrev(base64_encode($_)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   逆向加密算法，解密$miwen就是flag</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>我们这里来审计一波<br>for循环，从0到循环到字符串长度<br>从$_o开始之后$_0长度的字符开始寻找，长度为1的输出给了$_c</p>
-<p>php脚本如下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$miwen=<span class="string">&quot;a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB4tws&quot;</span>;</span><br><span class="line">$miwen=base64_decode(strrev(str_rot13($miwen)));</span><br><span class="line"></span><br><span class="line"><span class="comment">//echo $miwen;</span></span><br><span class="line"></span><br><span class="line">$m=$miwen;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;strlen($m);$i++)&#123;</span><br><span class="line">        </span><br><span class="line">    $_c=substr($m,$i,<span class="number">1</span>);</span><br><span class="line">    $__=ord($_c)<span class="number">-1</span>;    <span class="comment"># 字符转数字，在减1</span></span><br><span class="line">    $__=chr($__);      <span class="comment"># 数字转字符 </span></span><br><span class="line"></span><br><span class="line">    $_=$_.$__;         <span class="comment"># 拼接字符串</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> strrev($_);        <span class="comment"># 反转字符串</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200731120426725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="strrev函数"><a href="#strrev函数" class="headerlink" title="strrev函数"></a>strrev函数</h3><p>反转字符串<br><img src="https://img-blog.csdnimg.cn/20200731113904807.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h3><p><img src="https://img-blog.csdnimg.cn/20200731114453267.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>从第六位开始，返回之后的值<br><img src="https://img-blog.csdnimg.cn/2020073111463442.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="ord"><a href="#ord" class="headerlink" title="ord"></a>ord</h3><p><img src="https://img-blog.csdnimg.cn/20200731114759253.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>返回第一个字母的ASCII<br><img src="https://img-blog.csdnimg.cn/20200731114815735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h3 id="chr"><a href="#chr" class="headerlink" title="chr()"></a>chr()</h3><p><img src="https://img-blog.csdnimg.cn/20200731114959619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200731115147156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>从指定的ascii值返回字符<br>4的十进制ascii是52</p>
-<h3 id="str-rot13"><a href="#str-rot13" class="headerlink" title="str_rot13()"></a>str_rot13()</h3><p><img src="https://img-blog.csdnimg.cn/20200731115329784.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200731115345956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h4aHhoeGh4eA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一种编码解码函数<br>对字符串执行 ROT13 转换,ROT13 编码简单地使用字母表中后面第 13 个字母替换当前字母，同时忽略非字母表中的字符。编码和解码都使用相同的函数，传递一个编码过的字符串作为参数，将得到原始字符串。</p>
+                <p>我的博客即将同步至腾讯云+社区，邀请大家一同入驻：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/support-plan?invite_code=2hrkax375w84c">https://cloud.tencent.com/developer/support-plan?invite_code=2hrkax375w84c</a></p>
 
             </div>
             
@@ -191,7 +177,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://wumingzhilian.github.to/2020/08/04/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAweb2%E8%AF%A6%E8%A7%A3/",
+                text: "http://wumingzhilian.github.to/2020/11/05/%E8%85%BE%E8%AE%AF%E4%BA%91/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -203,10 +189,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://wumingzhilian.github.to/2020/08/04/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAweb2%E8%AF%A6%E8%A7%A3/";
-            const title         = "「攻防世界web进阶区web2详解」";
-            const excerpt       = `题目
-解法12345678910111213141516171819202122&lt;?php$miwen=&quot;a1zLbgQsCESEIqRLwuQAyMwLyq2L5VwBxqGA3RQAyumZ0tmMvSGM2ZwB...`;
+            const hostUrl       = "http://wumingzhilian.github.to/2020/11/05/%E8%85%BE%E8%AE%AF%E4%BA%91/";
+            const title         = "「腾讯云」";
+            const excerpt       = `我的博客即将同步至腾讯云+社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan?invite_code=2hrkax375w84c
+`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -225,10 +211,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/web%E8%BF%9B%E9%98%B6%E5%8C%BA/" rel="tag">web进阶区</a>, <a class="tag-none-link" href="/tags/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/" rel="tag">攻防世界</a>
+                        
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-08-04</span>
+                    <span>最后编辑：2020-11-05</span>
                     </div>
                 </div>
             </footer>
@@ -237,13 +223,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" xss-labs详解(上)1-10" href="/2020/08/03/first-post/">&lt; 上一篇</a>
+                    <a title=" Sql注入脚本" href="/2020/10/18/Sql/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" xss-labs详解（下）11-20" href="/2020/08/05/xss-labs详解（下）11-20/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -255,8 +237,8 @@
         new DisqusJS({
             shortname: '',
             siteName: '',
-            identifier: '2020/08/04/攻防世界web进阶区web2详解/',
-            url: 'http://wumingzhilian.github.to/2020/08/04/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cweb%E8%BF%9B%E9%98%B6%E5%8C%BAweb2%E8%AF%A6%E8%A7%A3/',
+            identifier: '2020/11/05/腾讯云/',
+            url: 'http://wumingzhilian.github.to/2020/11/05/%E8%85%BE%E8%AE%AF%E4%BA%91/',
             api: '',
             apikey: '',
             admin: '',
@@ -282,7 +264,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#strrev%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">strrev函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substr"><span class="toc-number">1.1.2.</span> <span class="toc-text">substr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ord"><span class="toc-number">1.1.3.</span> <span class="toc-text">ord</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chr"><span class="toc-number">1.1.4.</span> <span class="toc-text">chr()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#str-rot13"><span class="toc-number">1.1.5.</span> <span class="toc-text">str_rot13()</span></a></li></ol></li></ol></li></ol>
+            <p class="text-center"></p>
         
     </div>
 </aside>
